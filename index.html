@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Howard Lin</title>
+    <link rel="icon" href="assets/pf.jpg" type="image/icon type">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="media.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <div id="prev-about"></div>
+    <div id="one">
+        <nav class="desktop-nav full">
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="#prev-about">about</a></li>
+                    <li><a href="#prev-projects">projects</a></li>
+                    <li><a href="#prev-resume">experience</a></li>
+                    <li><a href="#prev-education">education</a></li>
+                    <li><a href="#prev-contact">contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    
+        <nav class="desktop-nav">
+            <div class="nav-links-container sm-tog">
+                <a title="Toggle dark/light mode" class="sun-moon-toggle" onclick="modeToggle()">
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+
+        <nav id="hamburger-nav">
+            <div class="menu">
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-links">
+                    <li><a href="#prev-about" onclick="toggleMenu()">about</a></li>
+                    <li><a href="#prev-projects" onclick="toggleMenu()">projects</a></li>
+                    <li><a href="#prev-resume" onclick="toggleMenu()">experience</a></li>
+                    <li><a href="#prev-education">education</a></li>
+                    <li><a href="#prev-contact" onclick="toggleMenu()">contact</a></li>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    
+    <section id="about">
+        <div id="photo">
+            <img src = "assets/pfp_2.PNG" alt="Profile Photo">
+        </div>
+        
+        <div id="intro-wrapper">
+            <div id="intro">
+                <h1 class="intro-text f-text">Hi! I'm Howard. </h1>
+                <div id="title-container">
+                    <h1 class="intro-text"> I'm a</h1>
+                    <h1 class="intro-text" id="changing-title"> </h1>
+                </div>
+                <!-- <h3 id = "intro-text-two">Check out my links below!</h3> -->
+                <!-- <div id="intro-button">
+
+                            <a class="card-btn" href="https://github.com/howardlin1218" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                                </svg>
+                            </a>
+
+                            <a class="card-btn" href="https://article-summarizer-4lcw.onrender.com/" target="_blank" rel="noopener noreferrer" title="View Site">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+                                </svg>
+                            </a>
+
+                </div> -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- <div id="prev-resume"></div>
+    <section id="resume">
+
+        <div id="exp-sect"> 
+            <h1>Experience</h1>
+            
+
+        </div>
+
+        <div id="resume-sect">
+            <img id="resume-pic" src="assets/resume_pic.jpg">
+            
+            <div id="resume-text">
+                <h1>Check out my resume!</h1>
+                <a id="resume-link" href="assets/howardlin_resume.pdf" download="">Download resume(PDF)</a>
+            </div>
+        </div>
+    </section> -->
+
+    <div id="prev-projects"></div>
+    <div id = "proj-title">
+        <h1>Projects</h1>
+    </div>
+
+    <section id="projects">
+        <div class="proj-cards-container"> 
+
+            <!--article summarizer-->
+            <div class="proj-card"> 
+                <div class="inner-card"> 
+
+                    <div class="card-img">
+                    
+                        <img class = "card-img-inner" src="assets/article_summarizer.png"> 
+
+                        <div class="card-img-overlay"> 
+
+                            <a class="card-btn" href="https://github.com/howardlin1218/article-summarizer" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                                </svg>
+                            </a>
+
+                            <a class="card-btn" href="https://article-summarizer-4lcw.onrender.com/" target="_blank" rel="noopener noreferrer" title="View Site">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+                                </svg>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-desc">
+
+                        <div class="proj-name"> 
+                            Article Summarizer
+                        </div>
+
+                        <p class="proj-summary">
+                            this is a short summary of the project. it should be 2 - 3 lines. this is just filler for now. third line come on
+                        </p>
+
+                        <div class="proj-attr-wrapper"> 
+                        
+                            <div class="proj-attr"> 
+
+                                <div class="proj-attr-item"> 
+                                    Python
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    TypeScript
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Flask
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    HTML
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    CSS
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Supabase
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Render
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Groq API
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Fullstack
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!--pdf converter-->
+            <div class="proj-card"> 
+                <div class="inner-card"> 
+
+                    <div class="card-img">
+                    
+                        <img class = "card-img-inner" src="assets/pdf_converter.png"> 
+
+                        <div class="card-img-overlay"> 
+
+                            <a class="card-btn" href="https://github.com/howardlin1218/pdf_parser" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                                </svg>
+                            </a>
+
+                            <a class="card-btn" href="https://pdf-parser-1-yogt.onrender.com/" target="_blank" rel="noopener noreferrer" title="View Site">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+                                </svg>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-desc">
+
+                        <div class="proj-name"> 
+                            PDF Converter
+                        </div>
+
+                        <p class="proj-summary">
+                            this is a short summary of the project. it should be 2 - 3 lines. this is just filler for now. third line come on
+                        </p>
+
+                        <div class="proj-attr-wrapper"> 
+                            <div class="proj-attr"> 
+
+                                <div class="proj-attr-item"> 
+                                    Python
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    TypeScript
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Flask
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    HTML
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    CSS
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Render
+                                </div>
+
+                                <br>
+                                <div class="proj-attr-item"> 
+                                    Fullstack
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--heart disease-->
+            <div class="proj-card"> 
+                <div class="inner-card"> 
+
+                    <div class="card-img">
+                    
+                        <img class = "card-img-inner" src="assets/heart_disease.png"> 
+
+                        <div class="card-img-overlay"> 
+
+                            <a class="card-btn" href="https://github.com/howardlin1218/Heart-Disease-Predictor" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                                </svg>
+                            </a>
+
+                            <a class="card-btn" href="https://github.com/howardlin1218/Heart-Disease-Predictor/blob/main/FinalProject_Group155_WI25.ipynb" target="_blank" rel="noopener noreferrer" title="View Jupyter Notebook">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+                                </svg>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-desc">
+
+                        <div class="proj-name"> 
+                            Heart Disease Predictor
+                        </div>
+
+                        <p class="proj-summary">
+                            this is a short summary of the project. it should be 2 - 3 lines. this is just filler for now. third line come on
+                        </p>
+
+                        <div class="proj-attr-wrapper"> 
+
+                            <div class="proj-attr"> 
+
+                                <div class="proj-attr-item"> 
+                                    Python
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Sklearn
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Pandas
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Numpy
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Logistic Regression
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Seaborn
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Matplotlib
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Jupyter Notebook
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Machine Learning
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--steam-->
+            <div class="proj-card"> 
+                <div class="inner-card"> 
+
+                    <div class="card-img">
+                    
+                        <img class = "card-img-inner" src="assets/steam.png"> 
+
+                        <div class="card-img-overlay"> 
+
+                            <a class="card-btn" href="https://github.com/rikcy0/steam-video-game-prediction" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                                </svg>
+                            </a>
+
+                            <a class="card-btn" href="https://github.com/rikcy0/steam-video-game-prediction/blob/main/main.ipynb" target="_blank" rel="noopener noreferrer" title="View Jupyter Notebook">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+                                </svg>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-desc">
+
+                        <div class="proj-name"> 
+                            Video Game Likability Prediction
+                        </div>
+
+                        <p class="proj-summary">
+                            this is a short summary of the project. it should be 2 - 3 lines. this is just filler for now. third line come on
+                        </p>
+
+                        <div class="proj-attr-wrapper"> 
+
+                            <div class="proj-attr"> 
+
+                                <div class="proj-attr-item"> 
+                                    Python
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Pandas
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Numpy
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Matplotlib
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Logistic Regression
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Seaborn
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Matplotlib
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Jupyter Notebook
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Machine Learning
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <!--pixel sketch-->
+            <div class="proj-card"> 
+                <div class="inner-card"> 
+
+                    <div class="card-img">
+                    
+                        <img class = "card-img-inner" src="assets/p_sketch.png"> 
+
+                        <div class="card-img-overlay"> 
+
+                            <a class="card-btn" href="https://github.com/howardlin1218/pixel-sketch" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                                </svg>
+                            </a>
+
+                            <a class="card-btn" href="https://howardlin1218.github.io/pixel-sketch/" target="_blank" rel="noopener noreferrer" title="View Site">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+                                </svg>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-desc">
+
+                        <div class="proj-name"> 
+                            Pixel Sketch
+                        </div>
+
+                        <p class="proj-summary">
+                            this is a short summary of the project. it should be 2 - 3 lines. this is just filler for now. third line come on
+                        </p>
+
+                        <div class="proj-attr-wrapper"> 
+
+                            <div class="proj-attr"> 
+
+                                <div class="proj-attr-item"> 
+                                    Python
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Sklearn
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Pandas
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Numpy
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Logistic Regression
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Seaborn
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Matplotlib
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Jupyter Notebook
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Machine Learning
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--rps-->
+            <div class="proj-card"> 
+                <div class="inner-card"> 
+
+                    <div class="card-img">
+                    
+                        <img class = "card-img-inner" src="assets/rps.png"> 
+
+                        <div class="card-img-overlay"> 
+
+                            <a class="card-btn" href="https://github.com/howardlin1218/rock_paper_scissors" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                                </svg>
+                            </a>
+
+                            <a class="card-btn" href="https://howardlin1218.github.io/rock_paper_scissors/" target="_blank" rel="noopener noreferrer" title="View Site">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+                                </svg>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-desc">
+
+                        <div class="proj-name"> 
+                            Rock Paper Scissors
+                        </div>
+
+                        <p class="proj-summary">
+                            this is a short summary of the project. it should be 2 - 3 lines. this is just filler for now. third line come on
+                        </p>
+
+                        <div class="proj-attr-wrapper"> 
+
+                            <div class="proj-attr"> 
+
+                                <div class="proj-attr-item"> 
+                                    Python
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Sklearn
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Pandas
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Numpy
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Logistic Regression
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Seaborn
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Matplotlib
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Jupyter Notebook
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Machine Learning
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--windows ad-->
+            <div class="proj-card"> 
+                <div class="inner-card"> 
+
+                    <div class="card-img">
+                    
+                        <img class = "card-img-inner" src="assets/windows_ad.png"> 
+
+                        <div class="card-img-overlay"> 
+
+                            <a class="card-btn" href="https://github.com/howardlin1218/windows_ad" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                                </svg>
+                            </a>
+
+                            <a class="card-btn" href="https://howardlin1218.github.io/windows_ad/" target="_blank" rel="noopener noreferrer" title="View Site">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+                                </svg>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-desc">
+
+                        <div class="proj-name"> 
+                            Email Marketing Ad - Windows
+                        </div>
+
+                        <p class="proj-summary">
+                            this is a short summary of the project. it should be 2 - 3 lines. this is just filler for now. third line come on
+                        </p>
+
+                        <div class="proj-attr-wrapper"> 
+
+                            <div class="proj-attr"> 
+
+                                <div class="proj-attr-item"> 
+                                    Python
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Sklearn
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Pandas
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Numpy
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Logistic Regression
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Seaborn
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Matplotlib
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Jupyter Notebook
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Machine Learning
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--glacier retreat-->
+            <div class="proj-card"> 
+                <div class="inner-card"> 
+
+                    <div class="card-img">
+                    
+                        <img class = "card-img-inner" src="assets/syn100.png"> 
+
+                        <div class="card-img-overlay"> 
+
+                            <!-- <a class="card-btn" href="https://github.com/howardlin1218/rock_paper_scissors" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                                </svg>
+                            </a> -->
+
+                            <a class="card-btn" href="https://storymaps.arcgis.com/stories/f13e3c84d31d4c87a106d00bac19ecc1" target="_blank" rel="noopener noreferrer" title="View Site">
+                                <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+                                </svg>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-desc">
+
+                        <div class="proj-name"> 
+                            Glacier Retreat Research Project
+                        </div>
+
+                        <p class="proj-summary">
+                            this is a short summary of the project. it should be 2 - 3 lines. this is just filler for now. third line come on
+                        </p>
+
+                        <div class="proj-attr-wrapper"> 
+
+                            <div class="proj-attr"> 
+
+                                <div class="proj-attr-item"> 
+                                    Python
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Sklearn
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Pandas
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Numpy
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Logistic Regression
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Seaborn
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Matplotlib
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Jupyter Notebook
+                                </div>
+
+                                <div class="proj-attr-item"> 
+                                    Machine Learning
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    
+
+                </div>
+            </div>
+
+    </section>
+
+    <div id="prev-resume"></div>
+    
+    <div id="exp-title"> 
+        <h1>Experience</h1>
+    </div>
+    
+    <!-- <div id="resume-text">
+        <a id="resume-link" href="assets/howard_lin.pdf" download="">Download resume(PDF)</a>
+    </div> -->
+
+    
+    <section id="resume">
+
+        <div class="exp-details-wrapper"> 
+            
+            <div class="exp-role card-ani"> 
+
+                <div class="company-logo"> 
+
+                    <div class="logo-wrapper"> 
+                        <img id="msi-logo" src="assets/msi-logo.png"> 
+                    </div>
+
+                </div>
+
+                <div class="job-desc"> 
+    
+                    <div class="company-name">
+                        <div class="company-name-inner"> 
+                            MSI Computer Corp. (MSI USA)<br>  
+                            <p>Software Engineer Intern</p>
+                        </div> 
+                         
+                        <div class="company-name-inner emp-details"> 
+                            <p> City of Industry, CA </p>
+                            <p> 6/27/25 - 9/18/25 </p>
+                        </div>
+                    </div>
+
+                    <div class="job-desc-inner"> 
+                        <ul>
+                            <li>
+                                Developed a full-stack Flask application with Python web-scraping, LLM-powered summarization (Groq API), Supabase SQL storage, and a TypeScript/HTML/CSS frontend deployed on Render
+                            </li>
+
+                            <br> 
+
+                            <li>
+                                Built an automated PDF to CSV conversion tool that extracts structured data and streamlines workflows into Google Sheets/Excel
+                            </li>
+
+                            <br>
+
+                            <li>
+                                Partnered with designers to modernize the Student Program landing page, improving UI clarity and user experience 
+                            </li>
+                            <br>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- <div id="resume-sect">
+            <img id="resume-pic" src="assets/resume_pic.jpg">
+            
+            <div id="resume-text">
+                <h1>Check out my resume!</h1>
+                <a id="resume-link" href="assets/howardlin_resume.pdf" download="">Download resume(PDF)</a>
+            </div>
+        </div> -->
+    </section>
+
+
+    <div id="prev-education"></div>
+
+    <!--Education-->
+    <div id="exp-title"> 
+        <h1>Education</h1>
+    </div>
+
+    <section id="resume">
+
+        <div class="exp-details-wrapper"> 
+            
+            <div class="exp-role card-ani"> 
+
+                <div class="company-logo"> 
+
+                    <div class="logo-wrapper"> 
+                        <img id="msi-logo" src="assets/ucsd_logo.png"> 
+                    </div>
+
+                </div>
+
+                <div class="job-desc"> 
+    
+                    <div class="company-name">
+                        <div class="company-name-inner"> 
+                            University of California, San Diego<br>  
+                            <p>B.S. Computer Science</p>
+                        </div> 
+                         
+                        <div class="company-name-inner emp-details"> 
+                            <p> La Jolla, CA </p>
+                            <p> 9/24 - Current </p>
+                        </div>
+                    </div>
+
+                    <div class="job-desc-inner"> 
+                        <ul>
+                            <li>
+                                Relevant Coursework
+                            </li>
+
+                            <br> 
+
+                            <li>
+                                
+                            </li>
+
+                            <br>
+
+                            <li>
+                                
+                            </li>
+                            <br>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- <div id="prev-contact"></div> -->
+
+    <!-- <div id = "contact-title">
+        <h1>Let's Connect!</h1>
+    </div> -->
+
+    <!-- <section id="contact">
+
+        <div class = "contact-container-outer-column">
+            
+            <div class = "contact-container-outer-row">
+                <div class = "contact-container-inner">
+                    <button id = "button-one"><a href="https://www.linkedin.com/in/howard-lin-b0a897255/" target="_blank"><img src="assets/linkedin.png"></a></button>
+                    <p class = "l">Linkedin</p>
+                </div>
+    
+                <div class = "contact-container-inner">
+                    <button id = "button-two"><a href="https://github.com/howardlin1218" target="_blank"><img src="assets/github.png"></a></button>
+                    <p class = "l">github</p>
+                </div>
+            </div>
+
+            <div class = "contact-container-outer-row">
+                <div class = "contact-container-inner">
+                    <button class = "disable-button"><img src="assets/phone-icon.png"></button>
+                    <p>626-461-6611</p>
+                </div>
+    
+                <div class = "contact-container-inner">
+                    <button class = "disable-button"><img src="assets/email-icon.png"></button>
+                    <p>howlin1218@gmail.com</p>
+                </div>
+            </div>
+
+        </div> 
+    </section> -->
+
+    <div id="prev-contact"></div>
+
+    <div id = "contact-title">
+        <h1>Let's Connect!</h1>
+    </div>
+
+    <section id="contact-sect"> 
+
+        <div id="contact-sect-inner"> 
+            <div id="github" class="contact-btn">GitHub</div>
+
+            <div id="linkedin" class="contact-btn">LinkedIn</div>
+
+            <div id="email" class="contact-btn">Email</div>
+
+            <div id="phone" class="contact-btn">Phone Number</div>
+        </div>
+    </section>
+
+    <footer>Made with 💙 by howardlin1218</footer>
+</body>
+</html>
