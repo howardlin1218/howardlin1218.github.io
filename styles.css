@@ -27,7 +27,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 } */
 
-body, .nav-links-container, #about, #photo, #intro-wrapper, #intro, .intro-text, #title-container, .char, #projects, #contact-sect-inner, footer{
+body, .nav-links-container, #about, #photo, #intro-wrapper, #intro, .intro-text, #title-container, .char, #projects, #contact-sect-inner, footer, .hamburger-icon {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -191,7 +191,7 @@ a:hover {
     cursor: pointer;
 
     border-radius: 50%;
-    background: var(--backgroundColor);
+    background: var(--navColor);
     /* border: 2px solid rgba(27, 26, 26, 0.5); */
 
     box-sizing: border-box;
@@ -1062,14 +1062,15 @@ a:hover {
     box-sizing: border-box;
 }
 
-/* Dark Mode Support */
-/* body.dark .contact-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1.5px solid rgba(255, 255, 255, 0.1);
-    color: #f0f2f5;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-} */
+.contact-div-link {
+    display: block;
 
+    text-decoration: none;
+}
+
+#github, #linkedin {
+    height: 100%;
+}
 #github:hover {
     transform: translateY(-5px);
     border-color: #3f3838;

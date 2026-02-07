@@ -1,3 +1,5 @@
+@import url('styles.css');
+
 @media screen and (max-width: 1200px) {
     /* body {
         display: flex;
@@ -514,14 +516,6 @@
         align-items: end;
     }
 
-    /* .full {
-        display: none;
-    }
-
-    #hamburger-nav {
-        display: flex;
-    } */
-
     #about {
         margin-top: 10rem;
 
@@ -547,6 +541,14 @@
     #contact-sect-inner {
         grid-template-columns: repeat(1, 1fr);
         padding: 10px;
+    }
+
+    .nav-links-container {
+        background-color: var(--backgroundColor);
+    }
+
+    .hamburger-icon {
+        background-color: var(--backgroundColor);
     }
 }
 
