@@ -27,7 +27,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 } */
 
-body, .nav-links-container, #about, #photo, #intro-wrapper, #intro, .intro-text, #title-container, .char, #projects, #contact-sect-inner, footer, .hamburger-icon {
+body, .nav-links-container, #about, #photo, #intro-wrapper, #intro, .intro-text, #title-container, .char, #projects, #contact-sect-inner, footer, .hamburger-icon, #skillSearch {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -704,7 +704,7 @@ a:hover {
 
     padding: 10px;
     background-color: var(--backgroundColor);
-    /* box-shadow: 0 4px 20px rgba(0,0,0,0.02); */
+    
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
     overflow: hidden;
@@ -744,7 +744,7 @@ a:hover {
     width: 100%;
     height: 40%;
     overflow: hidden;
-    background: transparent;
+    background: inherit;
     border-width: 0px;
     border-style: solid;
 }
@@ -818,8 +818,9 @@ a:hover {
   color: var(--fontColor);
 }
 
-.card-img:hover .card-img-overlay {
-   opacity: 1;
+.card-img:hover .card-img-overlay,
+.card-img:active .card-img-overlay {
+    opacity: 1;
 }
 
 .card-img-inner {
@@ -1098,4 +1099,68 @@ footer {
     box-sizing: border-box;
 
     color: var(--fontColor);
+}
+
+/* Container to help with centering or spacing on your page */
+.search-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+
+  background-color: inherit;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* The Search Bar */
+#skillSearch {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px; /* Prevents iOS zoom on focus */
+  color: var(--fontColor);
+  background-color: var(--backgroundColor);
+  
+  /* Border and Shape */
+  border: 2px solid var(--borderColor);
+  border-radius: 10px;
+  
+  /* Smooth transitions for focus */
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Interaction States */
+#skillSearch:hover {
+  border-color: var(--borderHoverColor);
+}
+
+/* Placeholder Styling */
+#skillSearch::placeholder {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.filtered-skill {
+    background-color: yellow;
+    transform: translateY(-4px);
+}
+
+.clear-icon {
+  /* position: absolute;
+  right: 15px;
+  top: 50%; */
+  cursor: pointer;
+  color: var(--fontColor);
+  font-size: 22px;
+  font-weight: bold;
+  /* display: none; */
+  user-select: none;
+  background-color: inherit;
+}
+
+.clear-icon:hover {
+  color: #6366f1;
 }

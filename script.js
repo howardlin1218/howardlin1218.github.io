@@ -133,3 +133,80 @@ function modeToggle() {
   
   document.body.classList.toggle('dark');
 }
+
+document.querySelectorAll('.card-img').forEach(card => {
+  card.addEventListener('click', function(e) {
+    // Toggle active class on the clicked card
+    this.classList.toggle('active');
+    
+    // Optional: Close other open cards
+    document.querySelectorAll('.card-img').forEach(otherCard => {
+      if (otherCard !== this) otherCard.classList.remove('active');
+    });
+  });
+});
+
+const searchInput = document.getElementById('skillSearch');
+const cards = document.querySelectorAll('.proj-card');
+const noResults = document.getElementById('noResults');
+const clearBtn = document.getElementById('clearBtn');
+
+clearBtn.addEventListener('click', () => {
+  searchInput.value = '';
+  clearBtn.style.display = 'none';
+
+  searchInput.dispatchEvent(new Event('input'));
+  
+  // Refocus the search bar for the user
+  searchInput.focus();
+})
+
+searchInput.addEventListener('input', () => {
+  const searchTerms = searchInput.value.toLowerCase()
+    .split(',')
+    .map(t => t.trim())
+    .filter(t => t !== "");
+
+  let hasMatches = false;
+
+  cards.forEach(card => {
+    const tags = card.dataset.tags.toLowerCase();
+    const pillTags = card.querySelectorAll('.proj-attr-item');
+    // Logic: Card must contain every term in the searchTerms array
+    const matchesAll = searchTerms.every(term => tags.includes(term));
+
+    if (searchTerms.length === 0 || matchesAll) {
+      card.style.display = "block";
+      hasMatches = true;
+      if (searchTerms.length === 0) {
+        pillTags.forEach(pillTag => {
+          pillTag.classList.remove('filtered-skill');
+        });
+        clearBtn.style.display = 'none';
+      } else {
+        clearBtn.style.display = 'block';
+      }
+    } else {
+      card.style.display = 'none';
+    }
+    
+    pillTags.forEach(pillTag => {
+      const pillTagText = pillTag.textContent.trim().toLowerCase();
+
+      for (const term of searchTerms) {
+        if (pillTagText.includes(term)) {
+          pillTag.classList.add("filtered-skill");
+          if (pillTagText === term) {
+            break;
+          }
+        } else {
+          pillTag.classList.remove("filtered-skill");
+        }
+      }
+
+    });
+  });
+
+  // Toggle "No Results" message
+  noResults.style.display = hasMatches ? "none" : "block";
+});
