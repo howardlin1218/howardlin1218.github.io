@@ -226,6 +226,34 @@
         flex-direction: column;
 
         padding-left: 0;
+
+        margin-top: 5rem;
+    }
+
+    #photo {
+        width: 100%;
+        display: flex;
+
+        justify-content: space-around;
+    }
+
+    #photo .mobile-intro {
+        padding: 0;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+
+        align-self: center;
+    }
+
+    #intro-button {
+        display: none;
+    }
+
+    .search-container {
+        max-width: 100%;
+        margin: 0; 
+        padding: 1rem;
     }
 }
 /* (min-width: 992px) and (max-width: 1200px) */
@@ -425,8 +453,11 @@
     .full {
         display: none;
     }
-    #hamburger-nav {
+    .hamburger-nav {
         display: flex;
+    }
+    .hamburger-nav-abs {
+        display: none;
     }
 }
 /* screen and (max-width: 669px) */
@@ -510,7 +541,6 @@
         font-size: 15px;
     }
 
-
     #one {
         flex-direction: column;
         align-items: end;
@@ -522,15 +552,18 @@
         padding-left: 0;
     }
 
+    #intro-wrapper {
+        padding: 0 3rem;
+    }
     .intro-text.f-text {
-        padding-left: 60px;
+        padding-left: 0px;
 
         font-size: 35px;
     }
 
     #title-container {
         /* justify-content: center; */
-        padding-left: 60px;
+        padding-left: 0px;
         width: 500px;
     }
 
@@ -538,17 +571,13 @@
         font-size: 35px;
     }
 
+    .title-desc {
+        padding-left: 0px;
+    }
+
     #contact-sect-inner {
         grid-template-columns: repeat(1, 1fr);
         padding: 10px;
-    }
-
-    .nav-links-container {
-        background-color: var(--backgroundColor);
-    }
-
-    .hamburger-icon {
-        background-color: var(--backgroundColor);
     }
 }
 
@@ -594,7 +623,7 @@
     .intro-text.f-text {
         padding-left: 0;
 
-        font-size: 30px;
+        font-size: 25px;
     }
 
     #title-container {
@@ -607,6 +636,14 @@
 
     #title-container h1 {
         font-size: 25px;
+    }
+
+    .title-desc {
+        padding: 0;
+    }
+    
+    #about {
+        margin-top: 0px;
     }
 }
 

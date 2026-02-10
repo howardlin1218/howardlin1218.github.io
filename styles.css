@@ -1,14 +1,15 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
 
 :root {
-    --backgroundColor: white;
-    --fontColor: black;
-    --mainColor: #F8F9FA;
-    --borderColor: transparent;
+    --backgroundColor: rgba(255, 255, 255, 0.05);
+    --fontColor: white;
+    --mainColor: #1A202C;
+    --borderColor: rgba(255, 255, 255, 0.3);
     --changingColor: gray;
-    --borderHoverColor: rgba(35, 29, 28, 0.146);
-    --navColor: white;
+    --borderHoverColor: rgba(99, 102, 241, 0.15);
+    --navColor: rgb(4, 3, 44);
     --navBorderColor: rgba(255, 255, 255, 0.3);
+    --filterColor: lightblue;
 }
 
 * {
@@ -17,17 +18,23 @@
     background-color: var(--mainColor);
 }
 
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-
-    /* transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; */
+a {
+    /* Remove the blue highlight entirely */
+    -webkit-tap-highlight-color: transparent;
+    transition: all 300ms ease
 }
 
-/* body, .nav-links-container, .card, #about, #intro-wrapper, #photo, .f-text, #title-container, .intro-text, .char, #intro, .moon-icon, .sun-icon{
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-} */
+a:hover {
+    color: grey;
+    text-decoration-color: rgb(181,181,181);
+    cursor: pointer;
+}
 
-body, .nav-links-container, #about, #photo, #intro-wrapper, #intro, .intro-text, #title-container, .char, #projects, #contact-sect-inner, footer, .hamburger-icon, #skillSearch {
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body, .nav-links-container, .hamburger-icon, .hamburger-icon-two, #skillSearch, .proj-card, svg, .nav-links-container {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -43,10 +50,6 @@ html {
 
 p {
     color: rgb(85, 85, 85);
-}
-
-a {
-    transition: all 300ms ease;
 }
 
 /* Light Mode */
@@ -71,19 +74,22 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
     opacity: 0.9;
 }
 
-.desktop-nav, .nav-links {
+.desktop-nav, .nav-links,.desktop-nav-light {
     display: flex;
     user-select: none;
     background-color: transparent;
 }
 
-.desktop-nav {
+.desktop-nav, .desktop-nav-light {
     width: fit-content; 
     box-sizing: border-box;
+
+    background-color: inherit;
+
+    justify-content: flex-end;
 }
 
 .nav-links-container {
-    width: fit-content;
     display: flex; 
     gap: 20px;    
     align-items: center;
@@ -91,32 +97,47 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
     border-radius: 50px;
     box-sizing: border-box;
 
-    /* border: 2px solid rgba(27, 26, 26, 0.5); */
     background-color: var(--navColor);
     border-style: solid;
     border-width: 1px;
     border-color: var(--navBorderColor);
+
+    width: 100%;
+    transition: width 0.2s ease, opacity 1s ease;
 }
 
 .nav-links-container.sm-tog {
-    width: fit-content;
     display: flex; 
-    gap: 20px;    
     align-items: center;
     padding: 10px 10px;
     border-radius: 50px;
     box-sizing: border-box;
-    /* border: 2px solid rgba(27, 26, 26, 0.5); */
 
-    /* background-color: var(--backgroundColor); */
+    background-color: var(--navColor);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--navBorderColor);
+
+    width: 56px;
+    height: 56px; 
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-links {
+    width: 100%;
     gap: 2rem;
     list-style: none;
     font-size: 1.5rem;
-    /* background-color: rgb(215, 115, 115); */
-    width: fit-content;
+    background-color: inherit;
+
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.nav-hidden {
+    width: 0;
+    opacity: 0;
 }
 
 .nav-links li {
@@ -139,7 +160,7 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
   align-items: center;
   justify-content: center;
 
-  color: rgb(11, 11, 217);
+  color: rgb(206, 186, 6);
   background: transparent;
 }
 
@@ -150,14 +171,214 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
   background-color: inherit;
 }
 
-.sun-moon-toggle svg:hover {
-    color: silver;
-}
+@media (hover:hover) {
+    .sun-moon-toggle svg:hover {
+        color: silver;
+    }
 
-a:hover {
-    color: grey;
-    text-decoration-color: rgb(181,181,181);
-    cursor: pointer;
+    .logo:hover {
+        cursor: default;
+    }
+
+    a:hover {
+        color: grey;
+        text-decoration-color: rgb(181,181,181);
+        cursor: pointer;
+    }
+
+    .menu-links li a:hover,
+    .menu-links-two li a:hover {
+        color: rgb(124, 121, 121);
+    }
+
+    #intro-button button:hover {
+        cursor: pointer;
+        text-decoration: none;
+        z-index: 99;
+        background-color: rgb(123,123,123,0.3);
+        border-radius: 50%;
+        transition: all 0.3ms ease;
+    }
+
+    #resume-link:hover {
+        text-underline-offset: 0.5rem;
+        cursor: pointer;
+    }
+
+    .card-ani:hover {
+        border-color: var(--borderHoverColor);
+    }
+
+    .proj-card:hover {
+        transform: translateY(-4px);
+        border-width: 3px;
+        border-color: var(--borderHoverColor);
+        box-shadow: 0 4px 20px var(--borderHoverColor);
+    }
+
+    .card-btn:hover svg {
+        width: 70%;
+        height: 70%;
+        color: var(--fontColor);
+    }
+
+    a.intro-card-btn:hover svg {
+        width: 100%;
+        height: 100%;
+        color:darkgrey;
+    }
+
+    a.intro-card-btn.linkedin-btn:hover svg {
+        width: 100%;
+        height: 100%;
+        color: #2c84e7;
+    }
+
+    .card-img:hover .card-img-overlay {
+        opacity: 1;
+    }
+
+    .contact-container-inner button:hover {
+        cursor: pointer;
+        text-decoration: none;
+        z-index: 99;
+        background-color: rgb(123,123,123,0.3);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    #myBtn svg:hover {
+        transform: translateY(-2px);
+        color: lightskyblue;
+    }
+
+    #skillSearch:hover {
+    border-color: var(--borderHoverColor);
+    }
+
+    #github:hover {
+        transform: translateY(-5px);
+        border-color: #3f3838;
+        box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
+    }
+
+    #linkedin:hover {
+        transform: translateY(-5px);
+        border-color: #2c84e7;
+        color:#2c84e7;
+        box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
+    }
+
+    .clear-icon:hover {
+        color: #6366f1;
+    }
+}   
+
+@media (hover: none) {
+    /* 1. Icons & Toggles */
+    .sun-moon-toggle svg:active {
+        color: silver;
+    }
+
+    .logo:active {
+        cursor: default;
+    }
+
+    /* 2. Global Links & Nav */
+    a:active {
+        color: grey;
+        text-decoration-color: rgb(181,181,181);
+    }
+
+    .menu-links li a:active,
+    .menu-links-two li a:active {
+        color: rgb(124, 121, 121);
+    }
+
+    /* 3. Intro Section */
+    #intro-button button:active {
+        text-decoration: none;
+        z-index: 99;
+        background-color: rgb(123,123,123,0.3);
+        border-radius: 50%;
+        transition: all 0.2s ease; /* Adjusted from 0.3ms to be visible */
+    }
+
+    #resume-link:active {
+        text-underline-offset: 0.5rem;
+    }
+
+    /* 4. Project Cards & Animations */
+    .card-ani:active {
+        border-color: var(--borderHoverColor);
+    }
+
+    .proj-card:active {
+        transform: translateY(-4px);
+        border-width: 3px;
+        border-color: var(--borderHoverColor);
+        box-shadow: 0 4px 20px var(--borderHoverColor);
+    }
+
+    /* 5. SVG resizing inside buttons */
+    .card-btn:active svg {
+        width: 70%;
+        height: 70%;
+        color: var(--fontColor);
+    }
+
+    a.intro-card-btn:active svg {
+        width: 100%;
+        height: 100%;
+        color: darkgrey;
+    }
+
+    a.intro-card-btn.linkedin-btn:active svg {
+        width: 100%;
+        height: 100%;
+        color: #2c84e7;
+    }
+
+    /* 6. Image Overlays */
+    .card-img:active .card-img-overlay {
+        opacity: 1;
+    }
+
+    /* 7. Contact Section & Back to Top */
+    .contact-container-inner button:active {
+        text-decoration: none;
+        z-index: 99;
+        background-color: rgb(123,123,123,0.3);
+        border-radius: 50%;
+        transition: all 0.2s ease;
+    }
+
+    #myBtn svg:active {
+        transform: translateY(-2px);
+        color: lightskyblue;
+    }
+
+    /* 8. Search & Socials */
+    #skillSearch:active {
+        border-color: var(--borderHoverColor);
+    }
+
+    #github:active {
+        transform: translateY(-5px);
+        border-color: #3f3838;
+        box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
+    }
+
+    #linkedin:active {
+        transform: translateY(-5px);
+        border-color: #2c84e7;
+        color: #2c84e7;
+        box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
+    }
+
+    .clear-icon:active {
+        color: #6366f1;
+    }
 }
 
 .logo {
@@ -165,13 +386,27 @@ a:hover {
     background-color: #f10e06;
 }
 
-.logo:hover {
-    cursor: default;
-}
-
-#hamburger-nav {
+.hamburger-nav {
     display: none;
     background-color: transparent;
+}
+
+.hamburger-nav-abs {
+    display: flex;
+    background-color: transparent;
+
+    position: absolute;
+
+    right: 120px;
+    z-index: -1;
+
+    transition: opacity 1s ease;
+    opacity: 0;
+}
+
+.nav-shown {
+    opacity: 1;
+    z-index: 1;
 }
 
 .menu {
@@ -181,7 +416,7 @@ a:hover {
     background-color: transparent;
 }
 
-.hamburger-icon {
+.hamburger-icon, .hamburger-icon-two {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -193,20 +428,24 @@ a:hover {
     border-radius: 50%;
     background: var(--navColor);
     /* border: 2px solid rgba(27, 26, 26, 0.5); */
-
     box-sizing: border-box;
+    
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--navBorderColor);
 
     gap: 0.5rem;
 }
 
-.hamburger-icon span{
+.hamburger-icon span, 
+.hamburger-icon-two span{
     width: 55%;
     height: 2px;
     background-color: var(--fontColor);
     transition: all 0.3 ease-in-out;
 }
 
-.menu-links {
+.menu-links, .menu-links-two {
     position: absolute;
     top: 100%;
     right: 0;
@@ -217,9 +456,12 @@ a:hover {
     transition: all 0.3 ease-in-out;
 
     border-radius: 24px;
+
+    background-color: inherit;
 }
 
-.menu-links a {
+.menu-links a,
+.menu-links-two a {
     display: block;
     padding: 10px;
     text-align: center;
@@ -227,41 +469,45 @@ a:hover {
     text-decoration: none;
     transition: all 0.3 ease-in-out;
 
-    background-color: var(--backgroundColor);
+    background-color: var(--navColor);
 
     color: var(--fontColor);
 }
 
-.menu-links li {
+.menu-links li,
+.menu-links-two li {
     list-style: none;
 }
 
-.menu-links li:hover {
-}
-
-.menu-links li a:hover {
+/* .menu-links li a:hover {
     color: rgb(124, 121, 121);
-}
-.menu-links.open {
+} */
+
+.menu-links.open, 
+.menu-links-two.open {
     margin-top: 2.5vh;
     max-height: 300px;
     transition: all 800ms ease;
 }
 
-.menu-links.close {
+.menu-links.close,
+.menu-links-two.close {
     min-height: 0px;
     transition: all 800ms ease-out;
 }
 
-.hamburger-icon.open span:first-child{
+.hamburger-icon.open span:first-child,
+.hamburger-icon-two.open span:first-child{
     transform: rotate(45deg) translateX(7px) translateY(7px);
 }
 
-.hamburger-icon.open span:nth-child(2){
+.hamburger-icon.open span:nth-child(2),
+.hamburger-icon-two.open span:nth-child(2) {
     opacity: 0;
 }
 
-.hamburger-icon.open span:last-child{
+.hamburger-icon.open span:last-child,
+.hamburger-icon-two.open span:last-child {
     transform: rotate(-45deg) translateX(7px) translateY(-7px);
 }
 
@@ -287,6 +533,7 @@ a:hover {
     align-items: center;
     flex-direction: row;
     justify-content:center;
+    background-color: inherit;
 
     gap: 2rem;
     box-sizing: border-box;
@@ -295,6 +542,7 @@ a:hover {
 }
 
 #photo {
+    background-color: inherit;
     box-sizing: border-box;
 
     padding: 20px;
@@ -309,6 +557,7 @@ a:hover {
 }
 
 #intro-wrapper {
+    background-color: inherit;
     width: fit-content;
 
     box-sizing: border-box;
@@ -317,6 +566,7 @@ a:hover {
 }
 
 #intro {
+    background-color: inherit;
     display: flex;
     flex-direction: column;
     cursor: default;
@@ -325,6 +575,7 @@ a:hover {
 }
 
 .intro-text {
+    background-color: inherit;
     font-size: 50px;
     width: fit-content;
 
@@ -332,19 +583,22 @@ a:hover {
 }
 
 #title-container {
+    background-color: inherit;
     display: flex;
-    width: 600px;
+    max-width: 600px;
     gap: 15px;
 
     box-sizing: border-box;
 }
 
 #changing-title {
+    background-color: inherit;
     /* padding-left: 10px; */
     color: var(--changingColor);
 }
 
 .char {
+    background-color: inherit;
     display: inline-block;
     opacity: 0;
     animation: fadeInChar 0.4s forwards;
@@ -372,31 +626,44 @@ a:hover {
     }
 }
 
-#intro-text-two {
-    /* padding-left: 20px; */
+.title-desc {
+    margin-top: 1rem;
+    background-color: inherit;
+}
+
+.title-desc p {
+    background-color: inherit;
+    color: var(--fontColor);
+    max-width: 600px;
+    background-color: inherit;
+    font-weight: bold;
+
+    font-size: 1.1rem;
 }
 
 #intro-button { 
-    margin-top: 30px;
+    width: fit-content;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 2rem;
+
+    background-color: inherit;
+    padding-top: 2rem;
 }
 
-#intro-button button {
-    border-radius: 10%;
-    border-style: none;
-    background-color: transparent;
+#photo .mobile-intro {
+    display: none;
 }
 
-#intro-button button:hover {
-    cursor: pointer;
-    text-decoration: none;
-    z-index: 99;
-    background-color: rgb(123,123,123,0.3);
-    border-radius: 50%;
-    transition: all 0.3ms ease;
+a.intro-card-btn {
+    width: 3rem; 
+    height: 3rem;
+}
+
+a.intro-card-btn svg {
+    width: 100%;
+    height: 100%;
 }
 
 #intro-button-one img{
@@ -434,10 +701,10 @@ a:hover {
     text-underline-offset: 0.5rem;
 }
 
-#resume-link:hover {
+/* #resume-link:hover {
     text-underline-offset: 0.5rem;
     cursor: pointer;
-}
+} */
 
 #resume {
     display: flex;
@@ -687,7 +954,11 @@ a:hover {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.card-ani:hover {
+/* .card-ani:hover {
+    border-color: var(--borderHoverColor);
+} */
+
+.card-ani:active {
     /* transform: translateY(-4px); */
     /* box-shadow: 0 12px 30px rgba(0,0,0,0.06); */
     /* z-index: 2; */
@@ -718,18 +989,6 @@ a:hover {
     border: 3px solid var(--borderColor);
 }
 
-/* .proj-card.show {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-} */
-
-.proj-card:hover {
-    transform: translateY(-4px);
-    border-width: 3px;
-    border-color: var(--borderHoverColor);
-    box-shadow: 0 4px 20px var(--borderHoverColor);
-}
-
 .inner-card {
     width: 100%;
     height: 100%;
@@ -747,6 +1006,10 @@ a:hover {
     background: inherit;
     border-width: 0px;
     border-style: solid;
+}
+
+.card-img-overlay.is-triggered {
+    opacity: 1;
 }
 
 .card-img-overlay {
@@ -811,8 +1074,7 @@ a:hover {
   color: var(--fontColor);
 }
 
-.card-btn:hover svg {
-  /* transform: translateX(2px); */
+/* .card-btn:hover svg {
   width: 70%;
   height: 70%;
   color: var(--fontColor);
@@ -821,12 +1083,14 @@ a:hover {
 .card-img:hover .card-img-overlay,
 .card-img:active .card-img-overlay {
     opacity: 1;
-}
+} */
 
 .card-img-inner {
     width: 100%;
     height: 100%;
     object-fit: scale-down;
+
+    background-color: inherit;
 }
 
 .card-desc {
@@ -902,6 +1166,7 @@ a:hover {
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--fontColor);
+    background-color: var(--mainColor);
 }
 
 #contact {
@@ -966,19 +1231,14 @@ a:hover {
     border-style: none;
 }
 
-.contact-container-inner button:hover {
+/* .contact-container-inner button:hover {
     cursor: pointer;
     text-decoration: none;
     z-index: 99;
     background-color: rgb(123,123,123,0.3);
     border-radius: 50%;
     transition: all 0.3ms ease;
-}
-
-.contact-container-inner .disable-button:hover {
-    cursor: default;
-    background-color: transparent;
-}
+} */
 
 #myBtn {
     display: none; /* Hidden by default */
@@ -1006,10 +1266,10 @@ a:hover {
     color: var(--fontColor); 
 }
 
-#myBtn svg:hover {
+/* #myBtn svg:hover {
     transform: translateY(-2px);
     color: lightskyblue;
-}
+} */
 
 #contact-sect {
     display: flex;
@@ -1034,7 +1294,7 @@ a:hover {
     width: 75%;
     height: 100%;
 
-    /* padding: 5rem; */
+    background-color: inherit;
 
     box-sizing: border-box;
 }
@@ -1072,7 +1332,7 @@ a:hover {
 #github, #linkedin {
     height: 100%;
 }
-#github:hover {
+/* #github:hover {
     transform: translateY(-5px);
     border-color: #3f3838;
     box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
@@ -1083,7 +1343,7 @@ a:hover {
     border-color: #2c84e7;
     color:#2c84e7;
     box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
-}
+} */
 
 .contact-btn:active {
     transform: translateY(-2px);
@@ -1094,7 +1354,7 @@ footer {
     padding: 5rem 0 1rem 0;
     text-align: center;
 
-    background-color: transparent;
+    background-color: inherit;
 
     box-sizing: border-box;
 
@@ -1112,6 +1372,8 @@ footer {
   display: flex;
   align-items: center;
   gap: 5px;
+
+  box-sizing: border-box;
 }
 
 /* The Search Bar */
@@ -1133,9 +1395,9 @@ footer {
 }
 
 /* Interaction States */
-#skillSearch:hover {
+/* #skillSearch:hover {
   border-color: var(--borderHoverColor);
-}
+} */
 
 /* Placeholder Styling */
 #skillSearch::placeholder {
@@ -1144,7 +1406,7 @@ footer {
 }
 
 .filtered-skill {
-    background-color: yellow;
+    background-color: var(--filterColor);
     transform: translateY(-4px);
 }
 
@@ -1156,11 +1418,7 @@ footer {
   color: var(--fontColor);
   font-size: 22px;
   font-weight: bold;
-  /* display: none; */
+  display: none;
   user-select: none;
   background-color: inherit;
-}
-
-.clear-icon:hover {
-  color: #6366f1;
 }
