@@ -226,20 +226,24 @@ searchInput.addEventListener('input', () => {
 let lastScrollY = window.scrollY;
 const nav = document.querySelector('.nav-links');
 const navContainer = document.querySelector('.nav-links-container');
+const hamNav = document.querySelector('.hamburger-nav-abs');
 const MIN_WIDTH = 750;
 
+window.addEventListener('load', () => {
+  if (window.scrollY > 0) {
+    hamNav.classList.add('nav-shown');
+    navContainer.classList.add('nav-hidden');
+  }
+});
 
 window.addEventListener('scroll', () => {
   const currentScrollY = window.scrollY;
-  const hamNav = document.querySelector('.hamburger-nav-abs');
 
   if (window.innerWidth > MIN_WIDTH) {
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      // nav.classList.add('nav-hidden');
       hamNav.classList.add('nav-shown');
       navContainer.classList.add('nav-hidden');
     } else {
-      // nav.classList.remove('nav-hidden');
       navContainer.classList.remove('nav-hidden');
       hamNav.classList.remove('nav-shown');
     }
@@ -247,3 +251,44 @@ window.addEventListener('scroll', () => {
 
   lastScrollY = currentScrollY;
 });
+
+async function copyToClipboard() {
+  const email = document.getElementById("email").innerText;
+  try {
+    await navigator.clipboard.writeText(email);
+    
+    // Visual feedback is important!
+    const btn = document.getElementById("email");
+    const originalText = btn.innerText;
+    btn.innerText = "Copied!";
+    
+    setTimeout(() => {
+      btn.innerText = originalText;
+    }, 2000);
+    
+  } catch (err) {
+    console.error('Failed to copy: ', err);
+  }
+}
+
+const edu = document.querySelector('#edu-tab');
+const exp = document.querySelector('#exp-tab');
+
+const eduSect = document.querySelector('#education');
+const expSect = document.querySelector('#resume');
+
+edu.addEventListener('click', () => {
+  expSect.style.display = 'none';
+  eduSect.style.display = 'flex';
+
+  edu.style.color = 'darkgray';
+  exp.style.color = 'var(--fontColor)';
+})
+
+exp.addEventListener('click', () => {
+  eduSect.style.display = 'none';
+  expSect.style.display = 'flex';
+
+  exp.style.color = 'darkgray';
+  edu.style.color = 'var(--fontColor)';
+})

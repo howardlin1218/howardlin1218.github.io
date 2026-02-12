@@ -234,6 +234,12 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
         color: #2c84e7;
     }
 
+    a.intro-card-btn.pdf-btn:hover svg {
+        width: 100%;
+        height: 100%;
+        color: #e72c2c;
+    }
+
     .card-img:hover .card-img-overlay {
         opacity: 1;
     }
@@ -259,6 +265,7 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
     #github:hover {
         transform: translateY(-5px);
         border-color: #3f3838;
+        color: #6c5353;
         box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
     }
 
@@ -266,6 +273,13 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
         transform: translateY(-5px);
         border-color: #2c84e7;
         color:#2c84e7;
+        box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
+    }
+
+    #email:hover {
+        transform: translateY(-5px);
+        border-color: #ed9a15;
+        color:#ed9a15;
         box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
     }
 
@@ -339,6 +353,12 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
         color: #2c84e7;
     }
 
+    a.intro-card-btn.pdf-btn:active svg {
+        width: 100%;
+        height: 100%;
+        color: #e72c2c;
+    }
+
     /* 6. Image Overlays */
     .card-img:active .card-img-overlay {
         opacity: 1;
@@ -373,6 +393,13 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
         transform: translateY(-5px);
         border-color: #2c84e7;
         color: #2c84e7;
+        box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
+    }
+
+    #email:active {
+        transform: translateY(-5px);
+        border-color: #ed9a15;
+        color:#ed9a15;
         box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
     }
 
@@ -478,10 +505,6 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
 .menu-links-two li {
     list-style: none;
 }
-
-/* .menu-links li a:hover {
-    color: rgb(124, 121, 121);
-} */
 
 .menu-links.open, 
 .menu-links-two.open {
@@ -676,7 +699,8 @@ a.intro-card-btn svg {
     width: 50px;
 }
 
-#resume #resume-sect {
+#resume #resume-sect,
+#education #resume-sect {
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -701,12 +725,7 @@ a.intro-card-btn svg {
     text-underline-offset: 0.5rem;
 }
 
-/* #resume-link:hover {
-    text-underline-offset: 0.5rem;
-    cursor: pointer;
-} */
-
-#resume {
+#resume, #education {
     display: flex;
     background-color: inherit;
     justify-content: center;
@@ -882,32 +901,6 @@ a.intro-card-btn svg {
     list-style:circle;
 }
 
-/* .comp-details {
-    display: flex;
-    width: 50%;
-    height: 100%;
-
-    background: white;
-
-    justify-content: start;
-    align-items: center;
-}
-
-.desc-list {
-    display: flex;
-    width: 50%;
-    height: 100%;
-
-    background: white;
-
-    justify-content: start;
-    align-items: center;
-}
-
-.desc-list li{
-    background: white;
-} */
-
 #projects {
   width: fit-content;
   height: fit-content;
@@ -919,14 +912,15 @@ a.intro-card-btn svg {
 
 #proj-title, #contact-title, #exp-title {
     cursor: default;
-    /* margin-top: 1vh; */
     display: block;
     justify-content: center;
-    /* margin-bottom: 10vh; */
     margin-bottom: 2rem;
-    /* flex-direction: column; */
     text-align: center;
     background-color: inherit;
+}
+
+#exp-title {
+    display: flex;
 }
 
 #proj-title h1,
@@ -938,15 +932,15 @@ a.intro-card-btn svg {
     color: var(--fontColor);
 }
 
+#exp-title h1 #exp-tab{
+    color: darkgray;
+}
+
 .proj-cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    
-    /* padding: 10px; */
     place-items: center;
-
-    /* overflow: hidden; */
     background-color: inherit;
 }
 
@@ -954,14 +948,7 @@ a.intro-card-btn svg {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* .card-ani:hover {
-    border-color: var(--borderHoverColor);
-} */
-
 .card-ani:active {
-    /* transform: translateY(-4px); */
-    /* box-shadow: 0 12px 30px rgba(0,0,0,0.06); */
-    /* z-index: 2; */
     border-color: var(--borderHoverColor);
 }
 
@@ -1073,17 +1060,6 @@ a.intro-card-btn svg {
 
   color: var(--fontColor);
 }
-
-/* .card-btn:hover svg {
-  width: 70%;
-  height: 70%;
-  color: var(--fontColor);
-}
-
-.card-img:hover .card-img-overlay,
-.card-img:active .card-img-overlay {
-    opacity: 1;
-} */
 
 .card-img-inner {
     width: 100%;
@@ -1231,27 +1207,18 @@ a.intro-card-btn svg {
     border-style: none;
 }
 
-/* .contact-container-inner button:hover {
-    cursor: pointer;
-    text-decoration: none;
-    z-index: 99;
-    background-color: rgb(123,123,123,0.3);
-    border-radius: 50%;
-    transition: all 0.3ms ease;
-} */
-
 #myBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: transparent; /* Set a background color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    border-radius: 10%; /* Rounded corners */
-    font-size: 2vh; /* Increase font size */
+    display: none;
+    position: fixed; 
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none;
+    outline: none; 
+    background-color: transparent; 
+    cursor: pointer; 
+    border-radius: 10%; 
+    font-size: 2vh; 
     border-style: none;
     text-decoration: none;
 
@@ -1266,18 +1233,10 @@ a.intro-card-btn svg {
     color: var(--fontColor); 
 }
 
-/* #myBtn svg:hover {
-    transform: translateY(-2px);
-    color: lightskyblue;
-} */
-
 #contact-sect {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
-    width: 100%;
-
-    height: 500px;
     padding: 0 64px;
 
     box-sizing: border-box;
@@ -1287,12 +1246,11 @@ a.intro-card-btn svg {
 
 #contact-sect-inner {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 1rem;
 
     width: 75%;
-    height: 100%;
 
     background-color: inherit;
 
@@ -1300,26 +1258,21 @@ a.intro-card-btn svg {
 }
 
 .contact-btn {
-    /* Shape & Size */
-    padding: 12px 24px;
+    padding: 50px 24px;
     border-radius: 24px;
     cursor: pointer;
     font-weight: 500;
     font-family: inherit;
     
-    /* The "Glass" Look */
     background: var(--backgroundColor);
     border: 3px solid var(--borderColor);
     
-    /* Subtle Shadow & Transition */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* Colors */
     color: var(--fontColor);
     display: flex;
     align-items: center;
-    /* gap: 8px; */
-
+    justify-content: center;
     box-sizing: border-box;
 }
 
@@ -1329,21 +1282,9 @@ a.intro-card-btn svg {
     text-decoration: none;
 }
 
-#github, #linkedin {
+#github, #linkedin, #email {
     height: 100%;
 }
-/* #github:hover {
-    transform: translateY(-5px);
-    border-color: #3f3838;
-    box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
-}
-
-#linkedin:hover {
-    transform: translateY(-5px);
-    border-color: #2c84e7;
-    color:#2c84e7;
-    box-shadow: 0 10px 20px rgba(239, 154, 154, 0.15);
-} */
 
 .contact-btn:active {
     transform: translateY(-2px);
@@ -1351,7 +1292,7 @@ a.intro-card-btn svg {
 }
 
 footer {
-    padding: 5rem 0 1rem 0;
+    padding: 25rem 0 1rem 0;
     text-align: center;
 
     background-color: inherit;
@@ -1361,7 +1302,6 @@ footer {
     color: var(--fontColor);
 }
 
-/* Container to help with centering or spacing on your page */
 .search-container {
   width: 100%;
   max-width: 600px;
@@ -1376,7 +1316,6 @@ footer {
   box-sizing: border-box;
 }
 
-/* The Search Bar */
 #skillSearch {
   width: 100%;
   padding: 14px 20px;
@@ -1384,22 +1323,14 @@ footer {
   color: var(--fontColor);
   background-color: var(--backgroundColor);
   
-  /* Border and Shape */
   border: 2px solid var(--borderColor);
   border-radius: 10px;
   
-  /* Smooth transitions for focus */
   transition: all 0.2s ease-in-out;
   outline: none;
   box-sizing: border-box;
 }
 
-/* Interaction States */
-/* #skillSearch:hover {
-  border-color: var(--borderHoverColor);
-} */
-
-/* Placeholder Styling */
 #skillSearch::placeholder {
   color: #94a3b8;
   font-style: italic;
@@ -1411,9 +1342,6 @@ footer {
 }
 
 .clear-icon {
-  /* position: absolute;
-  right: 15px;
-  top: 50%; */
   cursor: pointer;
   color: var(--fontColor);
   font-size: 22px;
@@ -1421,4 +1349,22 @@ footer {
   display: none;
   user-select: none;
   background-color: inherit;
+}
+
+.experience-education-tab-container {
+    width: 100%;
+    background-color: inherit;
+    position: relative;
+}
+
+.education-tab {
+    display: none;
+}
+
+#education {
+    display: none;
+}
+
+#contact-title p.proj-summary {
+    margin-top: 1rem;
 }
