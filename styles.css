@@ -917,6 +917,8 @@ a.intro-card-btn svg {
     margin-bottom: 2rem;
     text-align: center;
     background-color: inherit;
+
+    user-select: none;
 }
 
 #exp-title {
@@ -993,6 +995,8 @@ a.intro-card-btn svg {
     background-color: var(--mainColor);
     border-width: 0px;
     border-style: solid;
+
+    user-select: none;
 }
 
 .card-img-overlay.is-triggered {
