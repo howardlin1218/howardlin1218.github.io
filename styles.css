@@ -18,6 +18,15 @@
     background-color: var(--mainColor);
 }
 
+b {
+    background-color: inherit;
+    color: #d4922e;
+}
+
+body.dark b {
+    color: #996ad3;
+}
+
 a {
     /* Remove the blue highlight entirely */
     -webkit-tap-highlight-color: transparent;
