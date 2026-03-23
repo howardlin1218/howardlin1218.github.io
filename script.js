@@ -138,7 +138,7 @@ function modeToggle() {
     document.documentElement.style.setProperty('--borderColor', 'rgba(255, 255, 255, 0.3)');
     modeLink.style.color = 'rgb(206, 186, 6)';
     document.documentElement.style.setProperty('--borderHoverColor', 'rgba(99, 102, 241, 0.15)');
-    document.documentElement.style.setProperty('--navColor', 'rgb(4, 3, 44)');
+    document.documentElement.style.setProperty('--navColor', 'rgb(9, 9, 25)');
     document.documentElement.style.setProperty('--navBorderColor', 'rgba(255, 255, 255, 0.3)');
     document.documentElement.style.setProperty('--filterColor', 'lightblue');
   }
@@ -281,14 +281,14 @@ edu.addEventListener('click', () => {
   expSect.style.display = 'none';
   eduSect.style.display = 'flex';
 
-  edu.style.color = 'darkgray';
-  exp.style.color = 'var(--fontColor)';
+  edu.style.color = 'var(--fontColor)';
+  exp.style.color = 'darkgray';
 })
 
 exp.addEventListener('click', () => {
   eduSect.style.display = 'none';
   expSect.style.display = 'flex';
 
-  exp.style.color = 'darkgray';
-  edu.style.color = 'var(--fontColor)';
+  exp.style.color = 'var(--fontColor)';
+  edu.style.color = 'darkgray';
 })
