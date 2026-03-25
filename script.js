@@ -32,6 +32,14 @@ function toggleMenu() {
     }
 }
 
+let lastClicked = document.querySelector('.nav-links a');
+function activeSection(clickedLink) {
+  lastClicked.classList.remove('active-section');
+  clickedLink.classList.add('active-section');
+
+  lastClicked = clickedLink;
+}
+
 function toggleMenuTwo() {
     const menu = document.querySelector(".menu-links-two");
     const icon = document.querySelector(".hamburger-icon-two");
@@ -138,7 +146,7 @@ function modeToggle() {
     document.documentElement.style.setProperty('--borderColor', 'rgba(255, 255, 255, 0.3)');
     modeLink.style.color = 'rgb(206, 186, 6)';
     document.documentElement.style.setProperty('--borderHoverColor', 'rgba(99, 102, 241, 0.15)');
-    document.documentElement.style.setProperty('--navColor', 'rgb(9, 9, 25)');
+    document.documentElement.style.setProperty('--navColor', 'rgb(6, 6, 7)');
     document.documentElement.style.setProperty('--navBorderColor', 'rgba(255, 255, 255, 0.3)');
     document.documentElement.style.setProperty('--filterColor', 'lightblue');
   }
@@ -235,6 +243,27 @@ window.addEventListener('load', () => {
     navContainer.classList.add('nav-hidden');
   }
 });
+
+function revealNavBar() {
+  navContainer.classList.remove('nav-hidden');
+  hamNav.classList.remove('nav-shown');
+}
+
+function hideNavBar() {
+  if (window.scrollY > 0) {
+    navContainer.classList.add('nav-hidden');
+    hamNav.classList.add('nav-shown');
+  }
+}
+
+function actionNavBar() {
+  // hideNavBar()
+  if (!navContainer.classList.contains('nav-hidden')) {
+    hideNavBar();
+  } else {
+    revealNavBar();
+  }
+}
 
 window.addEventListener('scroll', () => {
   const currentScrollY = window.scrollY;

@@ -629,7 +629,13 @@
         font-size: 13px;
     }
 
+    .hidden-nav-container {
+        display: none;
+    }
+
     #one {
+        width: 100%;
+        box-sizing: border-box;
         flex-direction: row;
         justify-content: space-between;
 
