@@ -32,25 +32,30 @@ function toggleMenu() {
     }
 }
 
-// const navContainerTwo = document.querySelector('.nav-links-container');
-// function toggleMenuTwo() {
-//     const menu = document.querySelector(".menu-links-two");
-//     const icon = document.querySelector(".hamburger-icon-two");
-//     // if (menu.classList.contains("open")) {
-//     //     menu.classList.toggle("close");
-//     //     menu.classList.toggle("open");
-//     //     icon.classList.toggle("open");
-//     // } else if (menu.classList.contains("close")){
-//     //     menu.classList.toggle("open");
-//     //     icon.classList.toggle("open");
-//     //     menu.classList.toggle("close");
-//     // } else {
-//     //     menu.classList.toggle("open");
-//     //     icon.classList.toggle("open");
-//     // }
+let lastClicked = document.querySelector('.nav-links a');
+function activeSection(clickedLink) {
+  lastClicked.classList.remove('active-section');
+  clickedLink.classList.add('active-section');
 
-//     navContainerTwo.classList.add('nav-shown');
-// }
+  lastClicked = clickedLink;
+}
+
+function toggleMenuTwo() {
+    const menu = document.querySelector(".menu-links-two");
+    const icon = document.querySelector(".hamburger-icon-two");
+    if (menu.classList.contains("open")) {
+        menu.classList.toggle("close");
+        menu.classList.toggle("open");
+        icon.classList.toggle("open");
+    } else if (menu.classList.contains("close")){
+        menu.classList.toggle("open");
+        icon.classList.toggle("open");
+        menu.classList.toggle("close");
+    } else {
+        menu.classList.toggle("open");
+        icon.classList.toggle("open");
+    }
+}
 
 // Get the button:
 let mybutton = document.getElementById("myBtn");
@@ -239,26 +244,25 @@ window.addEventListener('load', () => {
   }
 });
 
-const navContainerTwo = document.querySelector('.nav-links-container');
-const hamNavTwo = document.querySelector('.hamburger-nav-abs');
-function toggleMenuTwo() {
-    const menu = document.querySelector(".menu-links-two");
-    const icon = document.querySelector(".hamburger-icon-two");
-    // if (menu.classList.contains("open")) {
-    //     menu.classList.toggle("close");
-    //     menu.classList.toggle("open");
-    //     icon.classList.toggle("open");
-    // } else if (menu.classList.contains("close")){
-    //     menu.classList.toggle("open");
-    //     icon.classList.toggle("open");
-    //     menu.classList.toggle("close");
-    // } else {
-    //     menu.classList.toggle("open");
-    //     icon.classList.toggle("open");
-    // }
+function revealNavBar() {
+  navContainer.classList.remove('nav-hidden');
+  hamNav.classList.remove('nav-shown');
+}
 
-    navContainerTwo.classList.remove('nav-hidden');
-    hamNavTwo.remove('nav-shown');
+function hideNavBar() {
+  if (window.scrollY > 0) {
+    navContainer.classList.add('nav-hidden');
+    hamNav.classList.add('nav-shown');
+  }
+}
+
+function actionNavBar() {
+  // hideNavBar()
+  if (!navContainer.classList.contains('nav-hidden')) {
+    hideNavBar();
+  } else {
+    revealNavBar();
+  }
 }
 
 window.addEventListener('scroll', () => {
