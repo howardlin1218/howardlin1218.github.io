@@ -7,7 +7,7 @@
     --borderColor: rgba(255, 255, 255, 0.3);
     --changingColor: gray;
     --borderHoverColor: rgba(99, 102, 241, 0.15);
-    --navColor: rgb(4, 3, 44);
+    --navColor: rgb(6, 6, 7);
     --navBorderColor: rgba(255, 255, 255, 0.3);
     --filterColor: lightblue;
 }
@@ -41,6 +41,7 @@ a:hover {
 
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding-top: 50px;
 }
 
 body, .nav-links-container, .hamburger-icon, .hamburger-icon-two, #skillSearch, .proj-card, svg, .nav-links-container {
@@ -70,8 +71,9 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
 
 #one {
     display:flex;
-    position: sticky;
+    position: fixed;
     top: 50px; 
+    right: 0;
     z-index: 100;
     background-color: transparent;
 
@@ -482,6 +484,10 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
     height: 2px;
     background-color: var(--fontColor);
     transition: all 0.3 ease-in-out;
+}
+
+.hamburger-icon-two:hover {
+    
 }
 
 .menu-links, .menu-links-two {

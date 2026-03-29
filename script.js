@@ -32,22 +32,25 @@ function toggleMenu() {
     }
 }
 
-function toggleMenuTwo() {
-    const menu = document.querySelector(".menu-links-two");
-    const icon = document.querySelector(".hamburger-icon-two");
-    if (menu.classList.contains("open")) {
-        menu.classList.toggle("close");
-        menu.classList.toggle("open");
-        icon.classList.toggle("open");
-    } else if (menu.classList.contains("close")){
-        menu.classList.toggle("open");
-        icon.classList.toggle("open");
-        menu.classList.toggle("close");
-    } else {
-        menu.classList.toggle("open");
-        icon.classList.toggle("open");
-    }
-}
+// const navContainerTwo = document.querySelector('.nav-links-container');
+// function toggleMenuTwo() {
+//     const menu = document.querySelector(".menu-links-two");
+//     const icon = document.querySelector(".hamburger-icon-two");
+//     // if (menu.classList.contains("open")) {
+//     //     menu.classList.toggle("close");
+//     //     menu.classList.toggle("open");
+//     //     icon.classList.toggle("open");
+//     // } else if (menu.classList.contains("close")){
+//     //     menu.classList.toggle("open");
+//     //     icon.classList.toggle("open");
+//     //     menu.classList.toggle("close");
+//     // } else {
+//     //     menu.classList.toggle("open");
+//     //     icon.classList.toggle("open");
+//     // }
+
+//     navContainerTwo.classList.add('nav-shown');
+// }
 
 // Get the button:
 let mybutton = document.getElementById("myBtn");
@@ -138,7 +141,7 @@ function modeToggle() {
     document.documentElement.style.setProperty('--borderColor', 'rgba(255, 255, 255, 0.3)');
     modeLink.style.color = 'rgb(206, 186, 6)';
     document.documentElement.style.setProperty('--borderHoverColor', 'rgba(99, 102, 241, 0.15)');
-    document.documentElement.style.setProperty('--navColor', 'rgb(9, 9, 25)');
+    document.documentElement.style.setProperty('--navColor', 'rgb(6, 6, 7)');
     document.documentElement.style.setProperty('--navBorderColor', 'rgba(255, 255, 255, 0.3)');
     document.documentElement.style.setProperty('--filterColor', 'lightblue');
   }
@@ -235,6 +238,28 @@ window.addEventListener('load', () => {
     navContainer.classList.add('nav-hidden');
   }
 });
+
+const navContainerTwo = document.querySelector('.nav-links-container');
+const hamNavTwo = document.querySelector('.hamburger-nav-abs');
+function toggleMenuTwo() {
+    const menu = document.querySelector(".menu-links-two");
+    const icon = document.querySelector(".hamburger-icon-two");
+    // if (menu.classList.contains("open")) {
+    //     menu.classList.toggle("close");
+    //     menu.classList.toggle("open");
+    //     icon.classList.toggle("open");
+    // } else if (menu.classList.contains("close")){
+    //     menu.classList.toggle("open");
+    //     icon.classList.toggle("open");
+    //     menu.classList.toggle("close");
+    // } else {
+    //     menu.classList.toggle("open");
+    //     icon.classList.toggle("open");
+    // }
+
+    navContainerTwo.classList.remove('nav-hidden');
+    hamNavTwo.remove('nav-shown');
+}
 
 window.addEventListener('scroll', () => {
   const currentScrollY = window.scrollY;
