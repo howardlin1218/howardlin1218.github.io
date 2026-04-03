@@ -602,7 +602,7 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
 }
 
 #about {
-    margin-top: 15rem;
+    margin-top: 10rem;
     display: flex;
     align-items: center;
     flex-direction: row;
