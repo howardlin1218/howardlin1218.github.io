@@ -231,9 +231,14 @@
     #about {
         flex-direction: column;
 
-        padding-left: 0;
+        padding-top: 0;
 
-        margin-top: 5rem;
+        /* margin-top: 5rem; */
+        gap: 0;
+    }
+
+    #intro-wrapper {
+        height: fit-content;
     }
 
     #photo {
@@ -357,7 +362,7 @@
         padding-left: 0;
     }
 
-    #prev-projects, #prev-contact, #prev-resume, #prev-education {
+    #prev-contact, #prev-resume, #prev-education {
         margin-top: 11rem;
     }
 
@@ -561,8 +566,6 @@
     }
 
     #about {
-        margin-top: 10rem;
-
         padding-left: 0;
     }
 
@@ -644,7 +647,6 @@
     }
 
     #about {
-        margin-top: 100px;
 
         padding-left: 0;
     }
@@ -673,10 +675,6 @@
 
     .title-desc {
         padding: 0;
-    }
-    
-    #about {
-        margin-top: 45px;
     }
 }
 

@@ -139,6 +139,13 @@ function modeToggle() {
     document.documentElement.style.setProperty('--navColor', 'white');
     document.documentElement.style.setProperty('--navBorderColor', 'transparent');
     document.documentElement.style.setProperty('--filterColor', 'yellow');
+    document.documentElement.style.setProperty('--dev-bg', 'rgba(180, 83, 9, 0.1)');
+    document.documentElement.style.setProperty('--dev-bg-solid', 'rgb(44, 23, 7)');
+    document.documentElement.style.setProperty('--dev-text', '#ed6d0b');
+    document.documentElement.style.setProperty('--dev-border', 'rgba(180, 83, 9, 0.2)');
+    document.documentElement.style.setProperty('--live-bg', 'rgba(5, 150, 105, 0.1)');
+    document.documentElement.style.setProperty('--live-text', '#047919');
+    document.documentElement.style.setProperty('--live-border', 'rgba(5, 150, 105, 0.2)');
   } else { 
     document.documentElement.style.setProperty('--mainColor', '#1A202C');
     document.documentElement.style.setProperty('--fontColor', 'white');
@@ -149,6 +156,13 @@ function modeToggle() {
     document.documentElement.style.setProperty('--navColor', 'rgb(6, 6, 7)');
     document.documentElement.style.setProperty('--navBorderColor', 'rgba(255, 255, 255, 0.3)');
     document.documentElement.style.setProperty('--filterColor', 'lightblue');
+    document.documentElement.style.setProperty('--dev-bg', 'rgba(251, 191, 36, 0.15)');
+    document.documentElement.style.setProperty('--dev-bg-solid', 'rgb(58, 48, 20)');
+    document.documentElement.style.setProperty('--dev-text', '#fbbf24');
+    document.documentElement.style.setProperty('--dev-border', 'rgba(251, 191, 36, 0.3)');
+    document.documentElement.style.setProperty('--live-bg', 'rgba(52, 211, 153, 0.15)');
+    document.documentElement.style.setProperty('--live-text', '#34d399');
+    document.documentElement.style.setProperty('--live-border', 'rgba(52, 211, 153, 0.3)');
   }
   
   document.body.classList.toggle('dark');
