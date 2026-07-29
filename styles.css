@@ -778,8 +778,10 @@ a.intro-card-btn svg {
 
 #resume, #education {
     display: flex;
+    flex-direction: column;
     background-color: inherit;
     justify-content: center;
+    gap: 2rem;
 }
 
 .exp-details-wrapper {
@@ -840,7 +842,8 @@ a.intro-card-btn svg {
     border: 1px solid black;
 }
 
-#msi-logo {
+#msi-logo,
+#magikid-logo {
     width: 100%;
     height: 100%;
 
