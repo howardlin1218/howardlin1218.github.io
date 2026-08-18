@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Dark Mode (Default) Tokens */
+    --mainColor: #0e1117;
+    --fontColor: #f0f6fc;
+    --fontMuted: #8b949e;
+    --backgroundColor: #161b22;
+    --cardBg: #13171f;
+    --borderColor: #30363d;
+    --borderHoverColor: #818cf8;
+    --changingColor: #818cf8;
+    --navColor: #0e1117;
+    --navBorderColor: #30363d;
+    --filterColor: #38bdf8;
+    --accentKeyword: #a78bfa;
+    --accentPrimary: #6366f1;
+  }
+
+  html.light, body:not(.dark) {
+    --mainColor: #ffffff;
+    --fontColor: #0d1117;
+    --fontMuted: #57606a;
+    --backgroundColor: #f6f8fa;
+    --cardBg: #ffffff;
+    --borderColor: #d0d7de;
+    --borderHoverColor: #4f46e5;
+    --changingColor: #4f46e5;
+    --navColor: #ffffff;
+    --navBorderColor: #d0d7de;
+    --filterColor: #d97706;
+    --accentKeyword: #b45309;
+    --accentPrimary: #4f46e5;
+  }
+
+  body {
+    background-color: var(--mainColor);
+    color: var(--fontColor);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Sharp Structural Lines & Panels */
+.sharp-card {
+  background-color: var(--cardBg);
+  border: 1px solid var(--borderColor);
+  color: var(--fontColor);
+  border-radius: 0px;
+}
+
+.sharp-card:hover {
+  border-color: var(--borderHoverColor);
+}
+
+.sharp-nav {
+  background-color: var(--navColor);
+  border: 1px solid var(--navBorderColor);
+  border-radius: 0px;
+}
+
+.sharp-btn {
+  border: 1px solid var(--borderColor);
+  border-radius: 0px;
+  background-color: var(--backgroundColor);
+  color: var(--fontColor);
+  transition: all 0.15s ease-in-out;
+}
+
+.sharp-btn:hover {
+  border-color: var(--borderHoverColor);
+  background-color: rgba(129, 140, 248, 0.1);
+}
+
+.sharp-btn-primary {
+  border: 1px solid var(--accentPrimary);
+  border-radius: 0px;
+  background-color: var(--accentPrimary);
+  color: #ffffff;
+  transition: all 0.15s ease-in-out;
+}
+
+.sharp-btn-primary:hover {
+  background-color: #4338ca;
+  border-color: #4338ca;
+}
+
+.sharp-tag {
+  border: 1px solid var(--borderColor);
+  border-radius: 0px;
+  background-color: var(--backgroundColor);
+  color: var(--fontMuted);
+}
+
+.sharp-tag:hover {
+  border-color: var(--borderHoverColor);
+  color: var(--fontColor);
+}
+
+.sharp-tag-active {
+  background-color: var(--accentPrimary) !important;
+  border-color: var(--accentPrimary) !important;
+  color: #ffffff !important;
+}
+
+.text-accent-changing {
+  color: var(--changingColor);
+}
+
+.highlight-keyword {
+  color: var(--accentKeyword);
+  font-weight: 600;
+}
+
+.tag-highlight {
+  background-color: var(--filterColor) !important;
+  border-color: var(--filterColor) !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+
+/* Caret blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 0.9s infinite;
+}
+
+/* Custom crisp scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--mainColor);
+  border-left: 1px solid var(--borderColor);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--borderColor);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--changingColor);
+}
