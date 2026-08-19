@@ -41,7 +41,7 @@ a:hover {
 
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding-top: 80px;
+    /* padding-top: 80px; */
 }
 
 body, .nav-links-container, .hamburger-icon, .hamburger-icon-two, #skillSearch, .proj-card, svg, .nav-links-container {
@@ -593,16 +593,20 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
 
 #prev-about {
     height: 0;
-    margin-top: -80px;
-    padding-bottom: 80px;
+    /* margin-top: -80px;
+    padding-bottom: 80px; */
 }
 
 #prev-projects, #prev-resume, #prev-contact, #prev-education {
     margin-top: 15rem;
 }
 
+#prev-projects {
+    margin-top: 0;
+}
+
 #about {
-    margin-top: 10rem;
+    /* margin-top: 10rem; */
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -612,7 +616,8 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
     gap: 2rem;
     box-sizing: border-box;
 
-    padding-left: 10rem;
+    /* padding-left: 10rem; */
+    height: 100vh;
 }
 
 #photo {
@@ -631,6 +636,16 @@ body.dark .moon-icon { opacity: 0; visibility: hidden;}
 }
 
 #intro-wrapper {
+    /* background-color: inherit;
+    width: fit-content;
+
+    box-sizing: border-box;
+    padding: 20px;
+    height: 100%; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: inherit;
     width: fit-content;
 
