@@ -63,26 +63,23 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="scroll-mt-16 relative py-28 md:py-36 px-8 md:px-14 max-w-6xl mx-auto border-b border-[var(--borderColor)]">
+    <section id="projects" className="scroll-mt-16 relative py-28 md:py-36 px-8 md:px-14 w-full mx-auto border-b border-[var(--borderColor)]">
       <div id="prev-projects" className="absolute -top-16 left-0"></div>
 
       {/* Section Sub-heading Indicator */}
-      <div className="flex items-center justify-between mb-12">
-        <div className="flex items-center gap-3 font-mono text-xs text-indigo-600 dark:text-indigo-400">
-          <span className="tracking-widest uppercase">// FEATURED PROJECTS &amp; RESEARCH</span>
-        </div>
+      {/* <div className="flex items-center justify-between mb-12">
         <div className="font-mono text-xs text-[var(--fontMuted)]">
           [{filteredProjects.length} / {projects.length} PROJECTS]
         </div>
-      </div>
+      </div> */}
 
       <div className="mb-14 space-y-6">
         <h2 id="proj-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--fontColor)]">
-          Engineering &amp; <span className="text-indigo-600 dark:text-indigo-400">Code Portfolio</span>
+          Projects
         </h2>
-        <p className="text-gray-700 dark:text-gray-300 max-w-2xl text-base leading-relaxed">
+        {/* <p className="text-gray-700 dark:text-gray-300 max-w-2xl text-base leading-relaxed">
           Full-stack applications, machine learning architectures, internal productivity tools, and GIS spatial research.
-        </p>
+        </p> */}
 
         {/* Sharp Tag Search & Filter Controls */}
         <div className="pt-4 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">

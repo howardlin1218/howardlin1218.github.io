@@ -6,9 +6,10 @@ export const projects = [
     tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'Apache2', 'Digital Ocean', 'MySQL', 'Fullstack'],
     thumbnail: '/assets/tracky.png',
     links: {
+      github: 'https://github.com/howardlin1218/article-summarizer/tree/prod-branch',
       live: 'https://www.reporting.howard1218.site/',
     },
-    featured: true,
+    featured: false,
   },
   {
     id: 'article-summarizer',
@@ -17,10 +18,10 @@ export const projects = [
     tags: ['Python', 'TypeScript', 'Flask', 'HTML', 'CSS', 'Supabase', 'Render', 'Groq API', 'Fullstack'],
     thumbnail: '/assets/article_summarizer.png',
     links: {
-      github: 'https://github.com/howardlin1218/article-summarizer',
+      github: 'https://github.com/howardlin1218/article-summarizer/tree/prod-branch',
       live: 'https://summarizer.howard1218.site',
     },
-    featured: true,
+    featured: false,
   },
   {
     id: 'pdf-converter',
@@ -32,7 +33,7 @@ export const projects = [
       github: 'https://github.com/howardlin1218/pdf_parser',
       live: 'https://pdf-parser-1-yogt.onrender.com/',
     },
-    featured: true,
+    featured: false,
   },
   {
     id: 'heart-disease-predictor',
@@ -42,7 +43,7 @@ export const projects = [
     thumbnail: '/assets/heart_disease.png',
     links: {
       github: 'https://github.com/howardlin1218/Heart-Disease-Predictor',
-      notebook: 'https://github.com/howardlin1218/Heart-Disease-Predictor',
+      notebook: 'https://github.com/howardlin1218/Heart-Disease-Predictor/blob/main/FinalProject_Group155_WI25.ipynb',
     },
     featured: false,
   },
@@ -54,7 +55,7 @@ export const projects = [
     thumbnail: '/assets/steam.png',
     links: {
       github: 'https://github.com/howardlin1218/steam-video-game-prediction',
-      notebook: 'https://github.com/howardlin1218/steam-video-game-prediction',
+      notebook: 'https://github.com/howardlin1218/steam-video-game-prediction/blob/main/main.ipynb',
     },
     featured: false,
   },
@@ -104,17 +105,7 @@ export const projects = [
       storymaps: 'https://storymaps.arcgis.com/stories/f13e3c84d31d4c87a106d00bac19ecc1',
     },
     featured: false,
-  },
-  {
-    id: 'cse-135-project',
-    title: 'CSE 135 Project',
-    summary: 'Upcoming full-stack web application project focusing on modern web standards and responsive scalable architecture.',
-    tags: ['Fullstack', 'Web Dev', 'TypeScript', 'React'],
-    thumbnail: null,
-    links: {},
-    status: 'Coming Soon',
-    featured: false,
-  },
+  }
 ];
 
 export const popularFilterTags = [

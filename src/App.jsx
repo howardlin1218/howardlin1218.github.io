@@ -11,12 +11,12 @@ function App() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-[var(--mainColor)] text-[var(--fontColor)] selection:bg-indigo-600 selection:text-white transition-colors duration-150">
+    <div className="min-h-screen bg-[var(--mainColor)] text-[var(--fontColor)] selection:bg-indigo-600 selection:text-white">
       {/* Permanently Fixed Top Navbar */}
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       {/* Main Structural Container with pt-16 offset for fixed navbar */}
-      <main className="max-w-6xl mx-auto border-x border-[var(--borderColor)] pt-16">
+      <main className="max-w-7xl mx-auto border-x border-[var(--borderColor)] pt-16">
         {/* Section 1: Hero & Profile */}
         <Hero />
 

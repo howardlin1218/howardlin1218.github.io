@@ -1,31 +1,50 @@
+import { useState, useEffect } from 'react';
 import { FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { useTypewriter } from '../hooks/useTypewriter';
 
+const pstFormatter = new Intl.DateTimeFormat('en-US', {
+  timeZone: 'America/Los_Angeles',
+  hour: 'numeric',
+  minute: '2-digit',
+  second: '2-digit',
+  hour12: true,
+});
+
 export default function Hero() {
   const { currentText } = useTypewriter(['Software Engineer.', 'Designer.', 'Student.']);
+  const [pstTime, setPstTime] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      setPstTime(
+        pstFormatter.format(new Date())
+      );
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section id="about" className="scroll-mt-16 relative pt-12 pb-16 md:pt-16 md:pb-20 px-6 md:px-12 max-w-6xl mx-auto border-b border-[var(--borderColor)]">
+    <section id="about" className="scroll-mt-16 relative pt-12 pb-16 md:pt-36 md:pb-20 px-6 md:px-12 w-full mx-auto border-b border-[var(--borderColor)]">
       {/* Section Sub-heading Indicator */}
-      <div className="flex items-center gap-3 font-mono text-xs text-indigo-600 dark:text-indigo-400 mb-6">
-        <span className="tracking-widest uppercase">// ABOUT ME &amp; PROFILE</span>
-      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Column: Sharp Rectangular Profile Frame */}
-        <div className="lg:col-span-5 flex flex-col items-center lg:items-start">
+        <div className="lg:col-span-5 flex flex-col items-center mx-auto lg:items-start">
           <div className="relative">
             {/* Square Sharp Avatar Container */}
             <div className="w-56 h-56 sm:w-64 sm:h-64 p-2 bg-[var(--backgroundColor)] border border-[var(--borderColor)] shadow-md relative transition-colors">
               {/* Corner crosshairs / technical brackets */}
-              <div className="absolute -top-1.5 -left-1.5 w-3.5 h-3.5 border-t-2 border-l-2 border-indigo-500 pointer-events-none"></div>
+              {/* <div className="absolute -top-1.5 -left-1.5 w-3.5 h-3.5 border-t-2 border-l-2 border-indigo-500 pointer-events-none"></div>
               <div className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 border-t-2 border-r-2 border-indigo-500 pointer-events-none"></div>
               <div className="absolute -bottom-1.5 -left-1.5 w-3.5 h-3.5 border-b-2 border-l-2 border-indigo-500 pointer-events-none"></div>
-              <div className="absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 border-b-2 border-r-2 border-indigo-500 pointer-events-none"></div>
+              <div className="absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 border-b-2 border-r-2 border-indigo-500 pointer-events-none"></div> */}
 
               <img
-                src="/assets/profile_photo_full.jpg"
+                src="/assets/pfp_2.PNG"
                 alt="Howard Lin Profile Photo"
                 className="w-full h-full object-cover transition-all duration-300"
                 onError={(e) => {
@@ -35,23 +54,19 @@ export default function Hero() {
             </div>
 
             {/* Sharp Status Pill */}
-            <div className="mt-3 flex items-center justify-between border border-[var(--borderColor)] bg-[var(--backgroundColor)] px-3 py-1.5 text-xs font-mono transition-colors">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-emerald-500 inline-block"></span>
-                <span className="text-[var(--fontColor)] font-medium">STATUS: OPEN TO SWE ROLES</span>
-              </div>
-            </div>
           </div>
 
-          {/* Location & Academic Meta */}
+          {/* Location & Time Meta */}
           <div className="mt-3 w-full max-w-[256px] grid grid-cols-2 gap-2 text-xs font-mono">
             <div className="p-2 border border-[var(--borderColor)] bg-[var(--backgroundColor)] flex flex-col gap-0.5 transition-colors">
-              <span className="text-[var(--fontMuted)] uppercase text-[10px]">Education</span>
-              <span className="text-[var(--fontColor)] font-semibold">UCSD CS '26</span>
+              <span className="text-[var(--fontMuted)] uppercase text-[10px]">Local Time (PST)</span>
+              <span className="text-[var(--fontColor)] font-semibold tabular-nums">
+                {pstTime || '--:--:-- --'}
+              </span>
             </div>
             <div className="p-2 border border-[var(--borderColor)] bg-[var(--backgroundColor)] flex flex-col gap-0.5 transition-colors">
-              <span className="text-[var(--fontMuted)] uppercase text-[10px]">Location</span>
-              <span className="text-[var(--fontColor)] font-semibold">California, US</span>
+              <span className="text-[var(--fontMuted)] uppercase text-[10px]">Currently in</span>
+              <span className="text-[var(--fontColor)] font-semibold">Los Angeles</span>
             </div>
           </div>
         </div>
@@ -82,36 +97,35 @@ export default function Hero() {
               href="https://github.com/howardlin1218"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 border border-[var(--borderColor)] bg-[var(--backgroundColor)] hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-white text-[var(--fontColor)] font-semibold transition-all"
+              className="flex items-center gap-2 px-5 py-2.5 border border-[var(--borderColor)] bg-[var(--backgroundColor)] hover:border-indigo-500 text-[var(--fontColor)] font-semibold transition-all"
             >
               <GithubIcon className="w-4 h-4 text-[var(--fontMuted)]" />
-              <span>[ GITHUB ]</span>
+              <span>GITHUB</span>
             </a>
 
             <a
               href="https://www.linkedin.com/in/howardlin1218"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 border border-[var(--borderColor)] bg-[var(--backgroundColor)] hover:border-blue-500 hover:text-blue-600 dark:hover:text-white text-[var(--fontColor)] font-semibold transition-all"
+              className="flex items-center gap-2 px-5 py-2.5 border border-[var(--borderColor)] bg-[var(--backgroundColor)] hover:border-blue-500 text-[var(--fontColor)] font-semibold transition-all"
             >
               <LinkedinIcon className="w-4 h-4 text-[#2c84e7]" />
-              <span>[ LINKEDIN ]</span>
+              <span>LINKEDIN</span>
             </a>
 
             <a
               href="/assets/howard_lin.pdf"
-              download="Howard_Lin_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-5 py-2.5 border border-indigo-600 bg-indigo-600 hover:bg-indigo-700 dark:hover:bg-indigo-500 text-white font-semibold transition-all shadow-sm"
             >
               <FileText className="w-4 h-4" />
-              <span>[ RESUME.PDF ]</span>
+              <span>VIEW RESUME</span>
             </a>
           </div>
 
           {/* Technical Stack Tags Grid */}
-          <div className="pt-4 border-t border-[var(--borderColor)] space-y-2">
+          {/* <div className="pt-4 border-t border-[var(--borderColor)] space-y-2">
             <div className="text-[11px] font-mono text-[var(--fontMuted)] uppercase tracking-wider">
               // Core Technical Focus
             </div>
@@ -125,7 +139,7 @@ export default function Hero() {
                 </span>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

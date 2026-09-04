@@ -2,24 +2,62 @@ import { useState } from 'react';
 import { Calendar, MapPin, BookOpen } from 'lucide-react';
 import { workExperiences, educationData } from '../data/experience';
 
+function renderBulletContent(bullet) {
+  if (!bullet) return null;
+  const text = typeof bullet === 'string' ? bullet : bullet.body || '';
+  if (!text) return null;
+
+  const highlightWords = Array.isArray(bullet.highlightWords)
+    ? bullet.highlightWords.filter(Boolean)
+    : [];
+
+  if (highlightWords.length === 0) {
+    return text;
+  }
+
+  // Sort longest first so phrases match before individual substrings
+  const sortedWords = [...highlightWords].sort((a, b) => b.length - a.length);
+  const pattern = new RegExp(
+    `(${sortedWords.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`,
+    'gi'
+  );
+
+  const parts = text.split(pattern);
+
+  return parts.map((part, index) => {
+    const isHighlight = sortedWords.some(
+      (w) => w.toLowerCase() === part.toLowerCase()
+    );
+
+    if (isHighlight) {
+      return (
+        <span
+          key={index}
+          className="font-semibold text-indigo-600 dark:text-indigo-400"
+        >
+          {part}
+        </span>
+      );
+    }
+    return part;
+  });
+}
+
 export default function Experience() {
   const [activeTab, setActiveTab] = useState('experience'); // 'experience' | 'education'
 
   return (
-    <section id="experience" className="scroll-mt-16 relative py-28 md:py-36 px-8 md:px-14 max-w-6xl mx-auto border-b border-[var(--borderColor)]">
+    <section id="experience" className="scroll-mt-16 relative py-28 md:py-36 px-8 md:px-14 w-full mx-auto border-b border-[var(--borderColor)]">
       <div id="prev-resume" className="absolute -top-16 left-0"></div>
 
       {/* Section Sub-heading Indicator */}
       <div className="flex items-center justify-between mb-12">
-        <div className="flex items-center gap-3 font-mono text-xs text-indigo-600 dark:text-indigo-400">
-          <span className="tracking-widest uppercase">// CAREER HISTORY &amp; EDUCATION</span>
-        </div>
       </div>
 
       {/* Section Header & Tab Controls */}
       <div className="mb-14 space-y-6">
         <h2 id="exp-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--fontColor)]">
-          Experience &amp; <span className="text-indigo-600 dark:text-indigo-400">Credentials</span>
+          Experience &amp; Education
         </h2>
 
         {/* Sharp Tab Buttons */}
@@ -33,7 +71,7 @@ export default function Experience() {
                 : 'border-[var(--borderColor)] bg-[var(--backgroundColor)] text-[var(--fontColor)] hover:border-indigo-500'
             }`}
           >
-            [ WORK EXPERIENCE ]
+            EXPERIENCE
           </button>
           <button
             id="edu-tab"
@@ -44,7 +82,7 @@ export default function Experience() {
                 : 'border-[var(--borderColor)] bg-[var(--backgroundColor)] text-[var(--fontColor)] hover:border-indigo-500'
             }`}
           >
-            [ ACADEMIC EDUCATION ]
+            EDUCATION
           </button>
         </div>
       </div>
@@ -57,10 +95,10 @@ export default function Experience() {
               key={job.id}
               className="sharp-card p-8 sm:p-10 transition-all hover:border-indigo-500"
             >
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
                 {/* Left Column: Company & Metadata */}
                 <div className="md:col-span-4 space-y-4">
-                  <div className="w-18 h-18 p-2.5 bg-white border border-[var(--borderColor)] flex items-center justify-center">
+                  <div className="w-18 h-18 bg-white border border-[var(--borderColor)] flex items-center justify-center">
                     <img
                       src={job.logo}
                       alt={`${job.company} logo`}
@@ -102,18 +140,17 @@ export default function Experience() {
                 </div>
 
                 {/* Right Column: Bullets */}
-                <div className="md:col-span-8 space-y-5 md:border-l md:border-[var(--borderColor)] md:pl-8">
-                  {job.bullets.map((bullet, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm leading-relaxed">
-                      <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs shrink-0 mt-0.5">&gt;</span>
-                      <p className="text-[var(--fontColor)]">
-                        <strong className="font-bold text-indigo-600 dark:text-purple-300">
-                          {bullet.lead}{' '}
-                        </strong>
-                        <span className="text-[var(--fontColor)]">{bullet.body}</span>
-                      </p>
-                    </div>
-                  ))}
+                <div className="md:col-span-8 flex flex-col justify-center gap-5 md:border-l md:border-[var(--borderColor)] md:pl-8">
+                  {job.bullets
+                    ?.filter((b) => (typeof b === 'string' ? b.trim() : b?.body?.trim()))
+                    .map((bullet, idx) => (
+                      <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm leading-relaxed">
+                        <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs shrink-0 mt-0.5">&gt;</span>
+                        <p className="text-[var(--fontColor)]">
+                          {renderBulletContent(bullet)}
+                        </p>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
@@ -128,7 +165,7 @@ export default function Experience() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
               {/* Left Column: UCSD Info */}
               <div className="md:col-span-4 space-y-5">
-                <div className="w-18 h-18 p-2.5 bg-white border border-[var(--borderColor)] flex items-center justify-center">
+                <div className="w-18 h-18 bg-transparent flex items-center justify-center">
                   <img
                     src={educationData.logo}
                     alt={`${educationData.institution} logo`}

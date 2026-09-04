@@ -36,23 +36,17 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-16 relative py-28 md:py-36 px-8 md:px-14 max-w-6xl mx-auto">
+    <section id="contact" className="scroll-mt-16 relative py-28 md:py-36 px-8 md:px-14 w-full mx-auto">
       <div id="prev-contact" className="absolute -top-16 left-0"></div>
 
       {/* Section Sub-heading Indicator */}
       <div className="flex items-center justify-between mb-12">
-        <div className="flex items-center gap-3 font-mono text-xs text-indigo-600 dark:text-indigo-400">
-          <span className="tracking-widest uppercase">// GET IN TOUCH &amp; SOCIALS</span>
-        </div>
       </div>
 
       <div className="mb-14 space-y-6">
         <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--fontColor)]">
-          Let's <span className="text-indigo-600 dark:text-indigo-400">Connect</span>
+          Check me out!
         </h2>
-        <p className="text-gray-700 dark:text-gray-300 max-w-xl text-base leading-relaxed">
-          I am currently open to full-time Software Engineer positions. Feel free to reach out directly via email or connect on LinkedIn and GitHub.
-        </p>
       </div>
 
       {/* 3-Column Social / Contact Cards Grid (#contact-sect) */}
@@ -72,13 +66,12 @@ export default function Contact() {
           </div>
 
           <div>
-            <div className="text-[var(--fontMuted)] uppercase text-[10px]">// CODE REPOSITORIES</div>
             <h3 className="text-lg font-bold text-[var(--fontColor)] mt-1">GitHub</h3>
             <p className="text-gray-600 dark:text-gray-400 mt-1">@howardlin1218</p>
           </div>
 
-          <div className="pt-3 border-t border-[var(--borderColor)] text-indigo-600 dark:text-indigo-400 group-hover:underline">
-            [ VIEW GITHUB PROFILE ]
+          <div className="pt-3 border-t border-[var(--borderColor)] text-indigo-600 dark:text-indigo-400">
+            VIEW GITHUB PROFILE
           </div>
         </a>
 
@@ -97,13 +90,12 @@ export default function Contact() {
           </div>
 
           <div>
-            <div className="text-[var(--fontMuted)] uppercase text-[10px]">// PROFESSIONAL NETWORK</div>
             <h3 className="text-lg font-bold text-[var(--fontColor)] mt-1">LinkedIn</h3>
             <p className="text-gray-600 dark:text-gray-400 mt-1">/in/howardlin1218</p>
           </div>
 
-          <div className="pt-3 border-t border-[var(--borderColor)] text-blue-600 dark:text-blue-400 group-hover:underline">
-            [ CONNECT ON LINKEDIN ]
+          <div className="pt-3 border-t border-[var(--borderColor)] text-blue-600 dark:text-blue-400">
+            CONNECT ON LINKEDIN
           </div>
         </a>
 
@@ -126,29 +118,14 @@ export default function Contact() {
           </div>
 
           <div>
-            <div className="text-[var(--fontMuted)] uppercase text-[10px]">// DIRECT INQUIRY</div>
             <h3 className="text-lg font-bold text-[var(--fontColor)] mt-1">Email Address</h3>
             <p className="text-gray-600 dark:text-gray-400 mt-1 select-all">{email}</p>
           </div>
 
-          <div className="pt-3 border-t border-[var(--borderColor)] text-amber-600 dark:text-amber-400 group-hover:underline">
-            {copied ? '[ EMAIL COPIED TO CLIPBOARD ]' : '[ CLICK TO COPY EMAIL ]'}
+          <div className="pt-3 border-t border-[var(--borderColor)] text-amber-600 dark:text-amber-400">
+            {copied ? 'EMAIL COPIED TO CLIPBOARD' : 'CLICK TO COPY EMAIL'}
           </div>
         </div>
-      </div>
-
-      {/* Direct Quick Mail Button */}
-      <div className="mt-14 pt-10 border-t border-[var(--borderColor)] flex flex-wrap items-center justify-between gap-6 font-mono text-xs">
-        <span className="text-[var(--fontMuted)] text-sm">
-          // Prefer default email client?
-        </span>
-        <a
-          href={`mailto:${email}?subject=Hello%20Howard%20-%20Software%20Engineer%20Inquiry`}
-          className="flex items-center gap-2.5 px-7 py-3.5 border border-indigo-600 bg-indigo-600 hover:bg-indigo-700 dark:hover:bg-indigo-500 text-white font-bold transition-all text-sm"
-        >
-          <Send className="w-4 h-4" />
-          <span>[ SEND DIRECT EMAIL ]</span>
-        </a>
       </div>
     </section>
   );
