@@ -24,14 +24,14 @@ export const projects = [
     featured: false,
   },
   {
-    id: 'pdf-converter',
-    title: 'PDF Converter',
+    id: 'Voice Transcription',
+    title: 'Voice Transcription',
     summary: 'Internal tool web app that extracts key structured information from PDF files and outputs downloadable .csv format. Python Flask backend parser hosted on Render.',
     tags: ['Python', 'TypeScript', 'Flask', 'HTML', 'CSS', 'Render', 'Fullstack'],
-    thumbnail: '/assets/pdf_converter.png',
+    thumbnail: '/assets/transcription.png',
     links: {
-      github: 'https://github.com/howardlin1218/pdf_parser',
-      live: 'https://pdf-parser-1-yogt.onrender.com/',
+      github: 'https://github.com/howardlin1218/voice-transcription',
+      live: 'https://voicetranscription.up.railway.app/',
     },
     featured: false,
   },
@@ -60,6 +60,17 @@ export const projects = [
     featured: false,
   },
   {
+    id: 'glacier-retreat-research',
+    title: 'Glacier Retreat Research',
+    summary: 'Quarter-long research project on glacier retreat in Glacier National Park utilizing GIS tools and spatial research data.',
+    tags: ['ArcGIS', 'Data Visualization', 'Graphics', 'Research'],
+    thumbnail: '/assets/syn100.png',
+    links: {
+      storymaps: 'https://storymaps.arcgis.com/stories/f13e3c84d31d4c87a106d00bac19ecc1',
+    },
+    featured: false,
+  },
+  {
     id: 'pixel-sketch',
     title: 'Pixel Sketch',
     summary: 'Interactive pixel-art sketching canvas tool with resizable grid, dynamic color picker, and eraser tool.',
@@ -68,41 +79,6 @@ export const projects = [
     links: {
       github: 'https://github.com/howardlin1218/pixel-sketch',
       live: 'https://howardlin1218.github.io/pixel-sketch/',
-    },
-    featured: false,
-  },
-  {
-    id: 'rock-paper-scissors',
-    title: 'Rock Paper Scissors',
-    summary: 'Interactive Rock Paper Scissors browser game against computer AI (first to 5 wins).',
-    tags: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
-    thumbnail: '/assets/rps.png',
-    links: {
-      github: 'https://github.com/howardlin1218/rock_paper_scissors',
-      live: 'https://howardlin1218.github.io/rock_paper_scissors/',
-    },
-    featured: false,
-  },
-  {
-    id: 'email-marketing-ad-windows',
-    title: 'Email Marketing Ad - Windows',
-    summary: 'HTML email template recreation based on commercial design graphics, cross-client email compatible.',
-    tags: ['HTML', 'CSS', 'Graphic Design'],
-    thumbnail: '/assets/windows_ad.png',
-    links: {
-      github: 'https://github.com/howardlin1218/windows_ad',
-      live: 'https://howardlin1218.github.io/windows_ad/',
-    },
-    featured: false,
-  },
-  {
-    id: 'glacier-retreat-research',
-    title: 'Glacier Retreat Research',
-    summary: 'Quarter-long research project on glacier retreat in Glacier National Park utilizing GIS tools and spatial research data.',
-    tags: ['ArcGIS', 'Data Visualization', 'Graphics', 'Research'],
-    thumbnail: '/assets/syn100.png',
-    links: {
-      storymaps: 'https://storymaps.arcgis.com/stories/f13e3c84d31d4c87a106d00bac19ecc1',
     },
     featured: false,
   }
