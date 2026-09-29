@@ -5,15 +5,38 @@ import { projects, popularFilterTags } from '../data/projects';
 
 export default function Projects() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedTag, setSelectedTag] = useState('All');
+  const [selectedTags, setSelectedTags] = useState([]);
+
+  const isTagHighlighted = (tag) => {
+    if (tag === 'All' || !searchTerm.trim()) return false;
+    const terms = searchTerm
+      .toLowerCase()
+      .split(',')
+      .map((t) => t.trim())
+      .filter(Boolean);
+
+    return terms.some((term) => {
+      const tagLower = tag.toLowerCase();
+      if (term === 'ml' && tagLower === 'machine learning') return true;
+      if (term === 'js' && tagLower === 'javascript') return true;
+      if (term === 'ts' && tagLower === 'typescript') return true;
+
+      if (term.length === 1) {
+        return tagLower.startsWith(term);
+      }
+      return tagLower.includes(term) || term.includes(tagLower);
+    });
+  };
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
-      if (selectedTag !== 'All') {
-        const hasQuickTag = project.tags.some(
-          (t) => t.toLowerCase() === selectedTag.toLowerCase()
+      if (selectedTags.length > 0) {
+        const matchesAllTags = selectedTags.every((selectedTag) =>
+          project.tags.some(
+            (t) => t.toLowerCase() === selectedTag.toLowerCase()
+          )
         );
-        if (!hasQuickTag) return false;
+        if (!matchesAllTags) return false;
       }
 
       if (!searchTerm.trim()) return true;
@@ -29,37 +52,62 @@ export default function Projects() {
       return terms.every((term) => {
         const titleMatch = project.title.toLowerCase().includes(term);
         const summaryMatch = project.summary.toLowerCase().includes(term);
-        const tagMatch = project.tags.some((tag) => tag.toLowerCase().includes(term));
+        const tagMatch = project.tags.some((tag) => {
+          const t = tag.toLowerCase();
+          if (t.includes(term)) return true;
+          if (term === 'ml' && t === 'machine learning') return true;
+          if (term === 'js' && t === 'javascript') return true;
+          if (term === 'ts' && t === 'typescript') return true;
+          return false;
+        });
         return titleMatch || summaryMatch || tagMatch;
       });
     });
-  }, [searchTerm, selectedTag]);
+  }, [searchTerm, selectedTags]);
 
   const isTagMatched = (tag) => {
-    if (selectedTag !== 'All' && tag.toLowerCase() === selectedTag.toLowerCase()) {
-      return true;
-    }
+    const isSelected = selectedTags.some(
+      (st) => st.toLowerCase() === tag.toLowerCase()
+    );
+    if (isSelected) return true;
+
     if (!searchTerm.trim()) return false;
     const terms = searchTerm
       .toLowerCase()
       .split(',')
       .map((t) => t.trim())
       .filter(Boolean);
-    return terms.some((term) => tag.toLowerCase().includes(term));
+
+    return terms.some((term) => {
+      const t = tag.toLowerCase();
+      if (t.includes(term)) return true;
+      if (term === 'ml' && t === 'machine learning') return true;
+      if (term === 'js' && t === 'javascript') return true;
+      if (term === 'ts' && t === 'typescript') return true;
+      return false;
+    });
   };
 
   const handleTagClick = (tag) => {
-    if (tag === selectedTag) {
-      setSelectedTag('All');
-    } else {
-      setSelectedTag(tag);
+    if (tag === 'All') {
+      setSelectedTags([]);
       setSearchTerm('');
+      return;
     }
+
+    setSelectedTags((prevTags) => {
+      const exists = prevTags.some((t) => t.toLowerCase() === tag.toLowerCase());
+      if (exists) {
+        return prevTags.filter((t) => t.toLowerCase() !== tag.toLowerCase());
+      } else {
+        return [...prevTags, tag];
+      }
+    });
   };
 
   const clearFilters = () => {
     setSearchTerm('');
-    setSelectedTag('All');
+    setSelectedTags([]);
   };
 
   return (
@@ -82,19 +130,17 @@ export default function Projects() {
         </p> */}
 
         {/* Sharp Tag Search & Filter Controls */}
-        <div className="pt-4 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+        {/* <div className="pt-4 grid grid-cols-1 md:grid-cols-12 gap-4 items-center"> */}
+        <div className="flex flex-col gap-2">
           {/* Search Input */}
-          <div className="md:col-span-6 relative">
+          <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[var(--fontMuted)]">
               <Search className="w-4 h-4" />
             </div>
             <input
               type="text"
               value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-                if (selectedTag !== 'All') setSelectedTag('All');
-              }}
+              onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="FILTER BY TAGS (e.g. Python, TypeScript...)"
               className="w-full pl-11 pr-11 py-3 bg-[var(--backgroundColor)] border border-[var(--borderColor)] text-xs font-mono text-[var(--fontColor)] placeholder-[var(--fontMuted)] focus:outline-none focus:border-indigo-500 transition-colors"
             />
@@ -110,18 +156,34 @@ export default function Projects() {
           </div>
 
           {/* Quick Filter Tag Chips */}
-          <div className="md:col-span-6 flex flex-wrap items-center gap-2 font-mono text-xs">
+          <div className="flex flex-wrap justify-start items-center gap-2 font-mono text-xs">
             {popularFilterTags.map((tag) => {
-              const isActive = selectedTag === tag;
+              const isSelected =
+                tag === 'All'
+                  ? selectedTags.length === 0 && !searchTerm.trim()
+                  : selectedTags.some((st) => st.toLowerCase() === tag.toLowerCase());
+
+              const isHighlighted = isTagHighlighted(tag);
+
+              let buttonClasses = 'px-3 py-1.5 text-xs border transition-all cursor-pointer ';
+
+              if (isHighlighted && isSelected) {
+                buttonClasses += 'tag-highlight ring-2 ring-indigo-500';
+              } else if (isHighlighted) {
+                buttonClasses += 'tag-highlight';
+              } else if (isSelected) {
+                buttonClasses += 'border-indigo-600 bg-indigo-600 text-white font-bold';
+              } else {
+                buttonClasses += 'border-[var(--borderColor)] bg-[var(--backgroundColor)] text-[var(--fontColor)] hover:border-indigo-500';
+              }
+
               return (
                 <button
                   key={tag}
+                  type="button"
                   onClick={() => handleTagClick(tag)}
-                  className={`px-3 py-1.5 text-[11px] border transition-all ${
-                    isActive
-                      ? 'border-indigo-600 bg-indigo-600 text-white font-bold'
-                      : 'border-[var(--borderColor)] bg-[var(--backgroundColor)] text-[var(--fontColor)] hover:border-indigo-500'
-                  }`}
+                  aria-pressed={isSelected}
+                  className={buttonClasses}
                 >
                   {tag}
                 </button>
@@ -133,7 +195,7 @@ export default function Projects() {
 
       {/* Projects Grid */}
       {filteredProjects.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => {
             return (
               <div
@@ -191,7 +253,7 @@ export default function Projects() {
                         return (
                           <span
                             key={tag}
-                            className={`px-2 py-1 text-[10px] font-mono border ${
+                            className={`px-2 py-1 text-xs font-mono border ${
                               matched
                                 ? 'tag-highlight'
                                 : 'border-[var(--borderColor)] bg-[var(--backgroundColor)] text-[var(--fontColor)]'
@@ -259,13 +321,13 @@ export default function Projects() {
       ) : (
         <div className="text-center py-16 sharp-card p-8 space-y-4">
           <p className="text-[var(--fontMuted)] text-xs font-mono">
-            // NO PROJECTS MATCHING CURRENT FILTER CRITERIA
+            NO PROJECTS MATCHING CURRENT FILTER CRITERIA
           </p>
           <button
             onClick={clearFilters}
             className="px-5 py-2.5 border border-indigo-500 bg-indigo-600 text-white text-xs font-mono font-bold"
           >
-            [ RESET ALL FILTERS ]
+            RESET ALL FILTERS
           </button>
         </div>
       )}

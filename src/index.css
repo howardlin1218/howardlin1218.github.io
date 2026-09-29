@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root,
   html.dark {
@@ -40,15 +42,6 @@
     --accentKeyword: #b45309;
     --accentPrimary: #4f46e5;
     color-scheme: light;
-  }
-
-  /* Universal, silky smooth color & border transitions for seamless theme toggling */
-  *,
-  *::before,
-  *::after {
-    transition-property: background-color, border-color, color, fill, stroke, box-shadow, text-decoration-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   body {

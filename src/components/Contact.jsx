@@ -45,7 +45,7 @@ export default function Contact() {
 
       <div className="mb-14 space-y-6">
         <h2 id="contact-title" className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--fontColor)]">
-          Check me out!
+          My links!
         </h2>
       </div>
 
@@ -56,21 +56,21 @@ export default function Contact() {
           href="https://github.com/howardlin1218"
           target="_blank"
           rel="noopener noreferrer"
-          className="sharp-card p-8 flex flex-col justify-between space-y-8 hover:border-indigo-500 transition-colors group"
+          className="sharp-card p-8 flex flex-col justify-between space-y-8 hover:border-indigo-500 transition-colors duration-150 group"
         >
           <div className="flex items-center justify-between">
             <div className="w-12 h-12 border border-[var(--borderColor)] flex items-center justify-center bg-[var(--backgroundColor)]">
               <GithubIcon className="w-6 h-6 text-[var(--fontColor)]" />
             </div>
-            <ExternalLink className="w-4 h-4 text-[var(--fontMuted)] group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+            <ExternalLink className="w-4 h-4 text-[var(--fontMuted)] group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-150" />
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-[var(--fontColor)] mt-1">GitHub</h3>
-            <p className="text-gray-600 dark:text-gray-400 mt-1">@howardlin1218</p>
+            <h3 className="text-xl font-bold text-[var(--fontColor)] mt-1">GitHub</h3>
+            <p className="text-base text-gray-600 dark:text-gray-400 mt-1">@howardlin1218</p>
           </div>
 
-          <div className="pt-3 border-t border-[var(--borderColor)] text-indigo-600 dark:text-indigo-400">
+          <div className="text-base pt-3 border-t border-[var(--borderColor)] text-indigo-600 dark:text-indigo-400">
             VIEW GITHUB PROFILE
           </div>
         </a>
@@ -80,49 +80,49 @@ export default function Contact() {
           href="https://www.linkedin.com/in/howardlin1218"
           target="_blank"
           rel="noopener noreferrer"
-          className="sharp-card p-8 flex flex-col justify-between space-y-8 hover:border-blue-500 transition-colors group"
+          className="sharp-card p-8 flex flex-col justify-between space-y-8 hover:border-blue-500 transition-colors duration-150 group"
         >
           <div className="flex items-center justify-between">
             <div className="w-12 h-12 border border-[var(--borderColor)] flex items-center justify-center bg-[var(--backgroundColor)]">
               <LinkedinIcon className="w-6 h-6 text-[#2c84e7]" />
             </div>
-            <ExternalLink className="w-4 h-4 text-[var(--fontMuted)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+            <ExternalLink className="w-4 h-4 text-[var(--fontMuted)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-150" />
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-[var(--fontColor)] mt-1">LinkedIn</h3>
-            <p className="text-gray-600 dark:text-gray-400 mt-1">/in/howardlin1218</p>
+            <h3 className="text-xl font-bold text-[var(--fontColor)] mt-1">LinkedIn</h3>
+            <p className="text-base text-gray-600 dark:text-gray-400 mt-1">/in/howardlin1218</p>
           </div>
 
-          <div className="pt-3 border-t border-[var(--borderColor)] text-blue-600 dark:text-blue-400">
-            CONNECT ON LINKEDIN
+          <div className="text-base pt-3 border-t border-[var(--borderColor)] text-blue-600 dark:text-blue-400">
+            LET'S CONNECT ON LINKEDIN!
           </div>
         </a>
 
         {/* Email Card (1-Click Copy & Direct Mail) */}
         <div
           onClick={handleCopyEmail}
-          className="sharp-card p-8 flex flex-col justify-between space-y-8 hover:border-amber-500 transition-colors cursor-pointer group"
+          className="sharp-card p-8 flex flex-col justify-between space-y-8 hover:border-amber-500 transition-colors duration-150 cursor-pointer group"
         >
           <div className="flex items-center justify-between">
             <div className="w-12 h-12 border border-[var(--borderColor)] flex items-center justify-center bg-[var(--backgroundColor)]">
-              <Mail className="w-6 h-6 text-[#ed9a15]" />
+              <Mail className="w-6 h-6" />
             </div>
             {copied ? (
-              <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5 text-xs">
+              <span className="text-sm text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5 text-base">
                 <Check className="w-4 h-4" /> COPIED!
               </span>
             ) : (
-              <Copy className="w-4 h-4 text-[var(--fontMuted)] group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors" />
+              <Copy className="w-4 h-4 text-[var(--fontMuted)] dark:group-hover:text-white transition-colors duration-150" />
             )}
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-[var(--fontColor)] mt-1">Email Address</h3>
-            <p className="text-gray-600 dark:text-gray-400 mt-1 select-all">{email}</p>
+            <h3 className="text-xl font-bold text-[var(--fontColor)] mt-1">Email Address</h3>
+            <p className="text-base text-gray-600 dark:text-gray-400 mt-1 select-all">{email}</p>
           </div>
 
-          <div className="pt-3 border-t border-[var(--borderColor)] text-amber-600 dark:text-amber-400">
+          <div className="text-base pt-3 border-t border-[var(--borderColor)] text-[var(--fontColor)]">
             {copied ? 'EMAIL COPIED TO CLIPBOARD' : 'CLICK TO COPY EMAIL'}
           </div>
         </div>

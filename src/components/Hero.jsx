@@ -12,7 +12,7 @@ const pstFormatter = new Intl.DateTimeFormat('en-US', {
 });
 
 export default function Hero() {
-  const { currentText } = useTypewriter(['Software Engineer.', 'Designer.', 'Student.']);
+  // const { currentText } = useTypewriter(['Software Engineer.', 'Designer.', 'Student.']);
   const [pstTime, setPstTime] = useState('');
 
   useEffect(() => {
@@ -44,11 +44,11 @@ export default function Hero() {
               <div className="absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 border-b-2 border-r-2 border-indigo-500 pointer-events-none"></div> */}
 
               <img
-                src="/assets/pfp_2.PNG"
+                src="/assets/pfp_1_2.png"
                 alt="Howard Lin Profile Photo"
                 className="w-full h-full object-cover transition-all duration-300"
                 onError={(e) => {
-                  e.currentTarget.src = '/assets/profile_photo.jpg';
+                  e.currentTarget.src = '/assets/profile_photo_full.jpg';
                 }}
               />
             </div>
@@ -57,7 +57,7 @@ export default function Hero() {
           </div>
 
           {/* Location & Time Meta */}
-          <div className="mt-3 w-full max-w-[256px] grid grid-cols-2 gap-2 text-xs font-mono">
+          <div className="mt-3 w-full max-w-[256px] grid grid-cols-2 gap-2 text-sm font-mono">
             <div className="p-2 border border-[var(--borderColor)] bg-[var(--backgroundColor)] flex flex-col gap-0.5 transition-colors">
               <span className="text-[var(--fontMuted)] uppercase text-[10px]">Local Time (PST)</span>
               <span className="text-[var(--fontColor)] font-semibold tabular-nums">
@@ -79,20 +79,20 @@ export default function Hero() {
             </h1>
 
             {/* Dynamic Typewriter Title */}
-            <div className="text-xl sm:text-2xl font-bold font-mono flex items-center min-h-[36px]">
+            {/* <div className="text-xl sm:text-2xl font-bold font-mono flex items-center min-h-[36px]">
               <span className="text-[var(--fontMuted)] mr-2.5">&gt; I'm a</span>
               <span className="text-indigo-600 dark:text-indigo-400 font-extrabold">{currentText}</span>
               <span className="w-2 h-5 bg-indigo-500 inline-block ml-1 animate-blink"></span>
-            </div>
+            </div> */}
           </div>
 
           {/* Bio Description */}
-          <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
-            I’m a fourth-year <span className="font-semibold text-[var(--fontColor)] underline decoration-indigo-500 underline-offset-4">Computer Science student at UC San Diego</span>, interested in full-stack development, web development, machine learning, and other software engineering opportunities.
+          <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed font-normal max-w-2xl">
+            I’m a recent CS graduate from UC San Diego, with experience in fullstack development, data analytics, machine learning, and mobile app development. I'm passionate about building scalable, impactful products that improve everyday life. Always learning new technologies and finding ways to become a better engineer!
           </p>
 
           {/* Sharp Action Buttons */}
-          <div className="pt-1 flex flex-wrap items-center gap-3 font-mono text-xs">
+          <div className="pt-1 flex flex-wrap items-center gap-3 font-mono text-sm">
             <a
               href="https://github.com/howardlin1218"
               target="_blank"
@@ -114,7 +114,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="/assets/howard_lin.pdf"
+              href="/assets/lin_howard.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-5 py-2.5 border border-indigo-600 bg-indigo-600 hover:bg-indigo-700 dark:hover:bg-indigo-500 text-white font-semibold transition-all shadow-sm"

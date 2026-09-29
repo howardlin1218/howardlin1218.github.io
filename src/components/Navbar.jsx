@@ -138,7 +138,7 @@ export default function Navbar({ theme, toggleTheme }) {
             <div className="h-4 w-px bg-[var(--borderColor)] mx-2" />
 
             <a
-              href="/assets/howard_lin.pdf"
+              href="/assets/lin_howard.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3.5 py-1.5 border border-indigo-500/50 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white font-bold transition-all text-xs"
@@ -189,7 +189,7 @@ export default function Navbar({ theme, toggleTheme }) {
               </a>
             ))}
             <a
-              href="/assets/howard_lin.pdf"
+              href="/assets/lin_howard.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between p-3 border border-indigo-500 bg-indigo-600/15 text-indigo-600 dark:text-indigo-400 font-bold"
