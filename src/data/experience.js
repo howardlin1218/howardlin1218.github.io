@@ -33,25 +33,25 @@ export const workExperiences = [
       }
     ]
   },
-  {
-    id: 'ucsd',
-    company: 'Human Computer Interaction Lab (UCSD)',
-    role: 'Undergraduate Research Assistant',
-    location: 'La Jolla, CA',
-    period: '3/25 – 5/25',
-    logo: '/assets/ucsd.png',
-    tags: ['Node.js', 'Express.js', 'REST API development'],
-    bullets: [
-      {
-        body: 'Built a low-latency voice transcription prototype using Node.js, Express, and Whisper Large v3 Turbo, streaming audio in-memory via the Web Audio API to achieve sub-second latency with zero disk I/O',
-        // highlightWords: ['Whisper Large v3 Turbo', 'Web Audio API', 'sub-second latency', 'zero disk I/O']
-      },
-      {
-        body: 'Designed an interactive frontend featuring a real-time canvas audio visualizer, cross-browser microphone streaming, word/character counters, and one-click transcript exports',
-        // highlightWords: ['real-time audio visualizer', 'cross-browser microphone streaming', 'live word/character counters', 'one-click text exports']
-      }
-    ]
-  },
+  // {
+  //   id: 'ucsd',
+  //   company: 'Human Computer Interaction Lab (UCSD)',
+  //   role: 'Undergraduate Research Assistant',
+  //   location: 'La Jolla, CA',
+  //   period: '3/25 – 5/25',
+  //   logo: '/assets/ucsd.png',
+  //   tags: ['Node.js', 'Express.js', 'REST API development'],
+  //   bullets: [
+  //     {
+  //       body: 'Built a low-latency voice transcription prototype using Node.js, Express, and Whisper Large v3 Turbo, streaming audio in-memory via the Web Audio API to achieve sub-second latency with zero disk I/O',
+  //       // highlightWords: ['Whisper Large v3 Turbo', 'Web Audio API', 'sub-second latency', 'zero disk I/O']
+  //     },
+  //     {
+  //       body: 'Designed an interactive frontend featuring a real-time canvas audio visualizer, cross-browser microphone streaming, word/character counters, and one-click transcript exports',
+  //       // highlightWords: ['real-time audio visualizer', 'cross-browser microphone streaming', 'live word/character counters', 'one-click text exports']
+  //     }
+  //   ]
+  // },
   {
     id: 'msi',
     company: 'MSI (Micro-Star International)',

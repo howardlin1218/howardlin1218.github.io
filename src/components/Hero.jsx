@@ -34,39 +34,35 @@ export default function Hero() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Column: Sharp Rectangular Profile Frame */}
         <div className="lg:col-span-5 flex flex-col items-center mx-auto lg:items-start">
-          <div className="relative">
-            {/* Square Sharp Avatar Container */}
-            <div className="w-56 h-56 sm:w-64 sm:h-64 p-2 bg-[var(--backgroundColor)] border border-[var(--borderColor)] shadow-md relative transition-colors">
-              {/* Corner crosshairs / technical brackets */}
-              {/* <div className="absolute -top-1.5 -left-1.5 w-3.5 h-3.5 border-t-2 border-l-2 border-indigo-500 pointer-events-none"></div>
-              <div className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 border-t-2 border-r-2 border-indigo-500 pointer-events-none"></div>
-              <div className="absolute -bottom-1.5 -left-1.5 w-3.5 h-3.5 border-b-2 border-l-2 border-indigo-500 pointer-events-none"></div>
-              <div className="absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 border-b-2 border-r-2 border-indigo-500 pointer-events-none"></div> */}
+          <div className="w-56 sm:w-64">
+            <div className="relative">
+              {/* Square Sharp Avatar Container */}
+              <div className="w-full h-56 sm:h-64 p-2 bg-[var(--backgroundColor)] border border-[var(--borderColor)] shadow-md relative transition-colors">
+                <img
+                  src="/assets/pfp_1_2.png"
+                  alt="Howard Lin Profile Photo"
+                  className="w-full h-full object-cover transition-all duration-300"
+                  onError={(e) => {
+                    e.currentTarget.src = '/assets/profile_photo_full.jpg';
+                  }}
+                />
+              </div>
 
-              <img
-                src="/assets/pfp_1_2.png"
-                alt="Howard Lin Profile Photo"
-                className="w-full h-full object-cover transition-all duration-300"
-                onError={(e) => {
-                  e.currentTarget.src = '/assets/profile_photo_full.jpg';
-                }}
-              />
+              {/* Sharp Status Pill */}
             </div>
 
-            {/* Sharp Status Pill */}
-          </div>
-
-          {/* Location & Time Meta */}
-          <div className="mt-3 w-full max-w-[256px] grid grid-cols-2 gap-2 text-sm font-mono">
-            <div className="p-2 border border-[var(--borderColor)] bg-[var(--backgroundColor)] flex flex-col gap-0.5 transition-colors">
-              <span className="text-[var(--fontMuted)] uppercase text-[10px]">Local Time (PST)</span>
-              <span className="text-[var(--fontColor)] font-semibold tabular-nums">
-                {pstTime || '--:--:-- --'}
-              </span>
-            </div>
-            <div className="p-2 border border-[var(--borderColor)] bg-[var(--backgroundColor)] flex flex-col gap-0.5 transition-colors">
-              <span className="text-[var(--fontMuted)] uppercase text-[10px]">Currently in</span>
-              <span className="text-[var(--fontColor)] font-semibold">Los Angeles</span>
+            {/* Location & Time Meta */}
+            <div className="mt-3 w-full grid grid-cols-2 gap-2 text-xs sm:text-sm font-mono">
+              <div className="p-2 border border-[var(--borderColor)] bg-[var(--backgroundColor)] flex flex-col gap-0.5 transition-colors">
+                <span className="text-[var(--fontMuted)] uppercase text-[9px] sm:text-[10px] tracking-tight">Local Time (PST)</span>
+                <span className="text-[var(--fontColor)] font-semibold tabular-nums">
+                  {pstTime || '--:--:-- --'}
+                </span>
+              </div>
+              <div className="p-2 border border-[var(--borderColor)] bg-[var(--backgroundColor)] flex flex-col gap-0.5 transition-colors">
+                <span className="text-[var(--fontMuted)] uppercase text-[9px] sm:text-[10px] tracking-tight">Currently in</span>
+                <span className="text-[var(--fontColor)] font-semibold">Los Angeles</span>
+              </div>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ function App() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       {/* Main Structural Container with pt-16 offset for fixed navbar */}
-      <main className="max-w-7xl mx-auto border-x border-[var(--borderColor)] pt-16">
+      <main className="max-w-7xl mx-auto border-x-0 md:border-x border-[var(--borderColor)] pt-16">
         {/* Section 1: Hero & Profile */}
         <Hero />
 
