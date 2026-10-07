@@ -9,10 +9,10 @@ export const workExperiences = [
     tags: ['React Native', 'Expo', 'TypeScript'],
     bullets: [
       {
-        body: 'Integrated Google AdMob across iOS, Android, macOS, and Web using React Native/Expo, implementing subscription-based conditional ad rendering and automated iOS ATT consent workflows'
+        body: 'Integrated Google AdMob using React Native, Expo, and TypeScript, enforcing 100% COPPA compliance (0% ad impressions on kid profiles) and Apple ATT privacy gating'
       },
       {
-        body: 'Developed cross-platform MVP client features and reusable TypeScript components, collaborating within an Agile startup workflow to accelerate release cycles'
+        body: 'Identified and fixed a client-side edge case causing cross-device subscription desync and unsafe database record changes by implementing a promote-only sync guard in React Native and verifying status against backend subscription records'
       },
       {
       }
@@ -28,7 +28,7 @@ export const workExperiences = [
     tags: ['C++', 'Python', 'Mentoring'],
     bullets: [
       {
-        body: 'Instructor for C++, Python, and AI product design/building',
+        body: 'Instructor for C++, Python, AI product design/building, and Data Structures and Algorithms',
         highlightWords: []
       }
     ]
@@ -85,11 +85,11 @@ export const workExperiences = [
     tags: ['Python', 'Scratch', 'Robotics', 'Mentoring'],
     bullets: [
       {
-        body: 'Instructed elementary and middle school students in foundational programming concepts using Python, Scratch, and introductory robotics kits.',
+        body: 'Instructed elementary and middle school students in foundational programming concepts using Python, Scratch, and introductory robotics kits',
         // highlightWords: ['Python', 'Scratch', 'introductory robotics kits'],
       },
       {
-        body: 'Guided small groups of 3 to 6 students through structured coding lessons, clarifying basic computer science principles and helping students troubleshoot logic errors.',
+        body: 'Guided small groups of 3 to 6 students through structured coding lessons, clarifying basic computer science principles and helping students troubleshoot logic errors',
         // highlightWords: ['structured coding lessons', 'computer science principles', 'troubleshoot logic errors'],
       }
     ]
