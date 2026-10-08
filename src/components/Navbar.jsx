@@ -141,7 +141,7 @@ export default function Navbar({ theme, toggleTheme }) {
               href="/assets/lin_howard.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3.5 py-1.5 border border-indigo-500/50 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white font-bold transition-all text-xs"
+              className="h-[30px] flex items-center gap-1.5 px-3.5 border border-indigo-500/50 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white font-bold transition-all text-xs"
             >
               <span>RESUME.PDF</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -150,7 +150,7 @@ export default function Navbar({ theme, toggleTheme }) {
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-2 border border-[var(--borderColor)] bg-[var(--backgroundColor)] text-[var(--fontMuted)] hover:text-yellow-500 hover:border-yellow-500 transition-colors ml-1"
+              className="h-[30px] w-[30px] flex items-center justify-center border border-[var(--borderColor)] bg-[var(--backgroundColor)] text-[var(--fontMuted)] hover:text-yellow-500 hover:border-yellow-500 transition-colors ml-1"
             >
               {theme === 'dark' ? <Sun className="w-4 h-4 text-yellow-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
             </button>

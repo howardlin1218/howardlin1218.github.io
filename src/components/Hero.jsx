@@ -88,14 +88,14 @@ export default function Hero() {
           </p>
 
           {/* Sharp Action Buttons */}
-          <div className="pt-1 flex flex-wrap items-center gap-3 font-mono text-sm">
+          <div className="pt-1 flex items-center gap-2 sm:gap-3 font-mono text-xs sm:text-sm">
             <a
               href="https://github.com/howardlin1218"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 border border-[var(--borderColor)] bg-[var(--backgroundColor)] hover:border-indigo-500 text-[var(--fontColor)] font-semibold transition-all"
+              className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-5 py-2 sm:py-2.5 border border-[var(--borderColor)] bg-[var(--backgroundColor)] hover:border-indigo-500 text-[var(--fontColor)] font-semibold transition-all whitespace-nowrap"
             >
-              <GithubIcon className="w-4 h-4 text-[var(--fontMuted)]" />
+              <GithubIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--fontMuted)] shrink-0" />
               <span>GITHUB</span>
             </a>
 
@@ -103,9 +103,9 @@ export default function Hero() {
               href="https://www.linkedin.com/in/howardlin1218"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 border border-[var(--borderColor)] bg-[var(--backgroundColor)] hover:border-blue-500 text-[var(--fontColor)] font-semibold transition-all"
+              className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-5 py-2 sm:py-2.5 border border-[var(--borderColor)] bg-[var(--backgroundColor)] hover:border-blue-500 text-[var(--fontColor)] font-semibold transition-all whitespace-nowrap"
             >
-              <LinkedinIcon className="w-4 h-4 text-[#2c84e7]" />
+              <LinkedinIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2c84e7] shrink-0" />
               <span>LINKEDIN</span>
             </a>
 
@@ -113,10 +113,10 @@ export default function Hero() {
               href="/assets/lin_howard.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 border border-indigo-600 bg-indigo-600 hover:bg-indigo-700 dark:hover:bg-indigo-500 text-white font-semibold transition-all shadow-sm"
+              className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-5 py-2 sm:py-2.5 border border-indigo-600 bg-indigo-600 hover:bg-indigo-700 dark:hover:bg-indigo-500 text-white font-semibold transition-all shadow-sm whitespace-nowrap"
             >
-              <FileText className="w-4 h-4" />
-              <span>VIEW RESUME</span>
+              <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+              <span><span className="hidden sm:inline">VIEW </span>RESUME</span>
             </a>
           </div>
 
